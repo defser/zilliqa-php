@@ -5,7 +5,7 @@ orbs:
   node: circleci/node@4.7.0
  
 workflows:
-  build-and-test:
+  build_and_test:
     jobs:
       - build_and_test:
           context:
