@@ -1,27 +1,21 @@
 version: 2.1
+
 orbs:
   php: circleci/php@1.1.0
-  docker: circleci/docker@1.7.0
-  node: circleci/node@4.7.0
-
 workflows:
-  build-and-test:
+  build_and_test:
     jobs:
-      - build_and_test:
-          context:
-            - docker
+      - build_and_test
 jobs:
   build_and_test:
     docker:
-      - image: circleci/php:8.0.10-cli-buster
+      - image: circleci/php:7.4.9-cli-buster
     steps:
       - checkout
-      - docker/install-docker-tools
       - run: |
           sudo apt update -y &&
           sudo apt install -y libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng-dev libgmp-dev re2c libmhash-dev libmcrypt-dev file zlib1g-dev  &&
           sudo ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/local/include/
-
       - run: mkdir ./php-ext-cache/
       - restore_cache:
           keys:
@@ -39,7 +33,7 @@ jobs:
             fi
             ls -al  /usr/local/include/php/
       - run:
-          name: Copying extensions to temp directory for caching
+          name: Copying extensions to temp directory for cache
           command: sudo cp -R /usr/local/lib/php/extensions/no-debug-non-zts-20190902/* ./php-ext-cache/
       - save_cache:
           key: extensions-v1-{{ checksum ".circleci/scripts/install-php-extensions.sh" }}
@@ -47,11 +41,11 @@ jobs:
             - ./php-ext-cache/
 
       - php/install-composer:
-          install-version: 2.1.6
+          install-version: 2.1.0
       - php/install-packages
 
       - run:
-          name: View PHP & Composer environment
+          name: View PHP environment
           command: |
             php -v &&
             composer --version &&
