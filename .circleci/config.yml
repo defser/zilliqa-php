@@ -5,13 +5,13 @@ orbs:
   node: circleci/node@4.7.0
  
 workflows:
-  build_and_test:
+  build:
     jobs:
-      - build_and_test:
+      - build:
           context:
             - docker
 jobs:
-  build_and_test:
+  build:
     docker:
       - image: circleci/php:8.0.10-cli-buster
     steps:
