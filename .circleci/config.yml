@@ -3,11 +3,11 @@ version: 2.1
 orbs:
   php: circleci/php@1.1.0
 workflows:
-  build-test:
+  build_and_test:
     jobs:
-      - build
+      - build_and_test
 jobs:
-  build:
+  build_and_test:
     docker:
       - image: circleci/php:7.4.9-cli-buster
     steps:
@@ -53,6 +53,6 @@ jobs:
       - run:
           name: Phpunit tests
           command: |
-            ./vendor/bin/phpunit --log-junit test-results/phpunit/junit-CodeGenerators.xml
+            ./vendor/bin/phpunit --log-junit test-results/phpunit/junit.xml
       - store_test_results:
           path: test-results
