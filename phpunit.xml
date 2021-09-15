@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="vendor/autoload.php">
+  <testsuites>
+    <testsuite name="ZilliqaStatic">
+      <directory>tests/TestZilliqaStatic/Unit</directory>
+    </testsuite>
+    <testsuite name="TestZilliqaMainnet">
+      <directory>tests/TestZilliqaMainnet/Unit</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <env name="SERVER_URL" value="https://api.zilliqa.com/"/>
+  </php>
+</phpunit>

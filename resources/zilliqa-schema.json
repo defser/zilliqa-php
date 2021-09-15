@@ -1,0 +1,12 @@
+{
+  "methods": {
+    "GetBalance": [["Bech32"], "Balance", 1, true, "api-account-get-balance"]
+  },
+  "objects": {
+    "Balance": {
+      "__required": ["balance", "nonce"],
+      "balance": "Quantity",
+      "nonce": "Quantity"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "defser/zilliqa-php",
+  "description": "A library integrating Zilliqa with typed PHP.",
+  "require": {
+    "php": ">=7.1",
+    "ext-json": "*",
+    "graze/guzzle-jsonrpc": "~3.0",
+    "pear/math_biginteger": "^1.0"
+  },
+  "scripts": {
+    "generate-methods": [
+      "php scripts/generate-methods.php"
+    ],
+    "generate-complex-datatypes": [
+      "php scripts/generate-complex-datatypes.php"
+    ]
+  },
+  "require-dev": {
+    "gossi/php-code-generator": "^0.5",
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zilliqa\\": "src/",
+      "TestZilliqaMainnet\\": "tests/TestZilliqaMainnet",
+      "TestZilliqaStatic\\": "tests/TestZilliqaStatic"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Patrick Falize",
+      "email": "info@defser.nl"
+    }
+  ]
+}
