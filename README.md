@@ -33,7 +33,7 @@ Add library in a [composer.json](https://getcomposer.org/doc/01-basic-usage.md) 
 composer require defser/zilliqa-php
 ```
 
-![architecture diagram](./architecture-diagramm.png "Zilliqa architecture")
+![architecture diagram](https://repository-images.githubusercontent.com/406884140/97e14f9a-7332-479c-911e-33efd4804d43 "Zilliqa architecture")
 
 ### Documentation
 
