@@ -50,4 +50,13 @@ interface Web3Interface {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetCurrentMiniEpoch(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetNetworkId().
+	 * 
+	 * See [Zilliqa Developer Docs GetNetworkId](https://dev.zilliqa.com/docs/apis/api-blockchain-get-network-id)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNetworkId(): ?ZilliqaQuantity;
 }

@@ -55,4 +55,15 @@ trait Web3Methods {
 	public function GetCurrentMiniEpoch(): ?ZilliqaQuantity {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
+
+	/**
+	 * Generated method GetNetworkId().
+	 * 
+	 * See [Zilliqa Developer Docs GetNetworkId](https://dev.zilliqa.com/docs/apis/api-blockchain-get-network-id)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNetworkId(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
 }
