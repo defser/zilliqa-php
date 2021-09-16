@@ -15,6 +15,3 @@ class GetPrevDSDifficultyTest extends TestZilliqaClient
         $this->assertTrue((int) $prevDSDifficulty->val() >= 10);
     }
 }
-
-
-

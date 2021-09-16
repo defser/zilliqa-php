@@ -132,4 +132,59 @@ trait Web3Methods {
 	public function GetTotalCoinSupply(): ?ZilliqaQuantity {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
+
+	/**
+	 * Generated method GetTransactionRate().
+	 * 
+	 * See [Zilliqa Developer Docs GetTransactionRate](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-rate)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetTransactionRate(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetTxBlockRate().
+	 * 
+	 * See [Zilliqa Developer Docs GetTxBlockRate](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block-rate)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetTxBlockRate(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetMinimumGasPrice().
+	 * 
+	 * See [Zilliqa Developer Docs GetMinimumGasPrice](https://dev.zilliqa.com/docs/apis/api-transaction-get-minimum-gas-price)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetMinimumGasPrice(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetNumTxnsDSEpoch().
+	 * 
+	 * See [Zilliqa Developer Docs GetNumTxnsDSEpoch](https://dev.zilliqa.com/docs/apis/api-transaction-get-num-txns-dsepoch)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNumTxnsDSEpoch(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetNumTxnsTxEpoch().
+	 * 
+	 * See [Zilliqa Developer Docs GetNumTxnsTxEpoch](https://dev.zilliqa.com/docs/apis/api-transaction-get-num-txns-txepoch)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNumTxnsTxEpoch(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
 }

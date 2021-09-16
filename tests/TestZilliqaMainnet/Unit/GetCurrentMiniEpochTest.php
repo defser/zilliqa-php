@@ -15,6 +15,3 @@ class GetCurrentMiniEpochTest extends TestZilliqaClient
         $this->assertTrue($miniEpoch->val() >= 1435994);
     }
 }
-
-
-

@@ -15,6 +15,3 @@ class GetCurrentDSEpochTest extends TestZilliqaClient
         $this->assertTrue($DSEpoch->val() >= 14360);
     }
 }
-
-
-

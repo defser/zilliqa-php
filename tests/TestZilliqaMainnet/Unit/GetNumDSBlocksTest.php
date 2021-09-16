@@ -15,6 +15,3 @@ class GetNumDSBlocksTest extends TestZilliqaClient
         $this->assertTrue((int) $numDSBlocks->val() >= 14362);
     }
 }
-
-
-

@@ -15,6 +15,3 @@ class GetNetworkIdTest extends TestZilliqaClient
         $this->assertTrue($networkId->val() === "1");
     }
 }
-
-
-

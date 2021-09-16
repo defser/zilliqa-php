@@ -15,6 +15,3 @@ class GetNumTxBlocksTest extends TestZilliqaClient
         $this->assertTrue((int) $numTxBlocks->val() >= 1436079);
     }
 }
-
-
-

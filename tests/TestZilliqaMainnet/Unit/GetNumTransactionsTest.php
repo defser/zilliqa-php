@@ -15,6 +15,3 @@ class GetNumTransactionsTest extends TestZilliqaClient
         $this->assertTrue((int) $numTransactions->val() >= 24688490);
     }
 }
-
-
-

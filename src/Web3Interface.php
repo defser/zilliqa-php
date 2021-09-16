@@ -113,4 +113,49 @@ interface Web3Interface {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetTotalCoinSupply(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetTransactionRate().
+	 * 
+	 * See [Zilliqa Developer Docs GetTransactionRate](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-rate)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetTransactionRate(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetTxBlockRate().
+	 * 
+	 * See [Zilliqa Developer Docs GetTxBlockRate](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block-rate)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetTxBlockRate(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetMinimumGasPrice().
+	 * 
+	 * See [Zilliqa Developer Docs GetMinimumGasPrice](https://dev.zilliqa.com/docs/apis/api-transaction-get-minimum-gas-price)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetMinimumGasPrice(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetNumTxnsDSEpoch().
+	 * 
+	 * See [Zilliqa Developer Docs GetNumTxnsDSEpoch](https://dev.zilliqa.com/docs/apis/api-transaction-get-num-txns-dsepoch)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNumTxnsDSEpoch(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetNumTxnsTxEpoch().
+	 * 
+	 * See [Zilliqa Developer Docs GetNumTxnsTxEpoch](https://dev.zilliqa.com/docs/apis/api-transaction-get-num-txns-txepoch)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNumTxnsTxEpoch(): ?ZilliqaQuantity;
 }

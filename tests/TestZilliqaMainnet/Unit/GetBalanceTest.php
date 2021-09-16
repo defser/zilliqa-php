@@ -18,6 +18,3 @@ class GetBalanceTest extends TestZilliqaClient
         $this->assertSame(100000000.0, ZilliqaStatic::convertCurrency($balance->balance));
     }
 }
-
-
-

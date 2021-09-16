@@ -15,6 +15,3 @@ class GetTotalCoinSupplyTest extends TestZilliqaClient
         $this->assertTrue((int) $totalCoinSupply->val() >= 15000000000);
     }
 }
-
-
-
