@@ -3,7 +3,13 @@
     "GetBalance": [["Bech32"], "Balance", 1, true, "api-account-get-balance"],
     "GetCurrentDSEpoch": [[], "Quantity", 0, false, "api-blockchain-get-current-ds-epoch"],
     "GetCurrentMiniEpoch": [[], "Quantity", 0, false, "api-blockchain-get-current-mini-epoch"],
-    "GetNetworkId": [[], "Quantity", 0, false, "api-blockchain-get-network-id"]
+    "GetNetworkId": [[], "Quantity", 0, false, "api-blockchain-get-network-id"],
+    "GetNumDSBlocks": [[], "Quantity", 0, false, "api-blockchain-num-ds-blocks"],
+    "GetNumTransactions": [[], "Quantity", 0, false, "api-blockchain-get-num-tx"],
+    "GetNumTxBlocks": [[], "Quantity", 0, false, "api-blockchain-get-num-tx-blocks"],
+    "GetPrevDifficulty": [[], "Quantity", 0, false, "api-blockchain-get-prev-difficulty"],
+    "GetPrevDSDifficulty": [[], "Quantity", 0, false, "api-blockchain-get-prev-ds-difficulty"],
+    "GetTotalCoinSupply": [[], "Quantity", 0, false, "api-blockchain-get-total-coin-supply"]
   },
   "objects": {
     "Balance": {

@@ -59,4 +59,58 @@ interface Web3Interface {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetNetworkId(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetNumDSBlocks().
+	 * 
+	 * See [Zilliqa Developer Docs GetNumDSBlocks](https://dev.zilliqa.com/docs/apis/api-blockchain-num-ds-blocks)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNumDSBlocks(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetNumTransactions().
+	 * 
+	 * See [Zilliqa Developer Docs GetNumTransactions](https://dev.zilliqa.com/docs/apis/api-blockchain-get-num-tx)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNumTransactions(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetNumTxBlocks().
+	 * 
+	 * See [Zilliqa Developer Docs GetNumTxBlocks](https://dev.zilliqa.com/docs/apis/api-blockchain-get-num-tx-blocks)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetNumTxBlocks(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetPrevDifficulty().
+	 * 
+	 * See [Zilliqa Developer Docs GetPrevDifficulty](https://dev.zilliqa.com/docs/apis/api-blockchain-get-prev-difficulty)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetPrevDifficulty(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetPrevDSDifficulty().
+	 * 
+	 * See [Zilliqa Developer Docs GetPrevDSDifficulty](https://dev.zilliqa.com/docs/apis/api-blockchain-get-prev-ds-difficulty)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetPrevDSDifficulty(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetTotalCoinSupply().
+	 * 
+	 * See [Zilliqa Developer Docs GetTotalCoinSupply](https://dev.zilliqa.com/docs/apis/api-blockchain-get-total-coin-supply)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetTotalCoinSupply(): ?ZilliqaQuantity;
 }
