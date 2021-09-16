@@ -22,7 +22,7 @@ class ZilliqaBech32 extends ZilliqaData
         return preg_match('/^zil1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{38}$/', $val);
     }
 
-    public function val()
+    public function val(): string
     {
         return $this->value;
     }

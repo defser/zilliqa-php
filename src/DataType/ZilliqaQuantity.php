@@ -12,7 +12,7 @@ class ZilliqaQuantity extends ZilliqaData
         return $val;
     }
 
-    public function val()
+    public function val(): string
     {
         return $this->value;
     }

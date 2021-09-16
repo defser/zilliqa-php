@@ -6,6 +6,7 @@ test-results
 docs
 doc
 *generatedTest.php
+.phpunit.result.cache
 
 !docs/.gitkeep
 

@@ -7,8 +7,6 @@ use Exception;
 /**
  * Basic Zilliqa data types.
  *
- * Can be bool, integer, data, lists, arrays...
- *
  * @ingroup dataTypes
  */
 class ZilliqaData extends ZilliqaDataType
@@ -41,11 +39,6 @@ class ZilliqaData extends ZilliqaDataType
         $this->setValue($val);
     }
 
-    public function validate($val)
-    {
-        return $val;
-    }
-
     public static function typeMap(string $type): ?string
     {
         return self::SCHEMA_MAP[$type] ?? null;
@@ -63,10 +56,5 @@ class ZilliqaData extends ZilliqaDataType
         return array(
           'value' => $this->value,
         );
-    }
-
-    public function val()
-    {
-        return $this->value;
     }
 }

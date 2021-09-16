@@ -13,7 +13,7 @@ namespace Zilliqa;
 
 use Zilliqa\DataType\ZilliqaBech32;
 use Zilliqa\DataType\Balance;
-use Zilliqa\DataType\ZilliqaData;
+use Zilliqa\DataType\ZilliqaQuantity;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -38,7 +38,7 @@ interface Web3Interface {
 	 * 
 	 * See [Zilliqa Developer Docs GetCurrentDSEpoch](https://dev.zilliqa.com/docs/apis/api-blockchain-get-current-ds-epoch)
 	 *
-	 * @return ?ZilliqaData
+	 * @return ?ZilliqaQuantity
 	 */
-	public function GetCurrentDSEpoch(): ?ZilliqaData;
+	public function GetCurrentDSEpoch(): ?ZilliqaQuantity;
 }
