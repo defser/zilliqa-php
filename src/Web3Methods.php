@@ -12,6 +12,7 @@ namespace Zilliqa;
 
 use Zilliqa\DataType\ZilliqaBech32;
 use Zilliqa\DataType\Balance;
+use Zilliqa\DataType\ZilliqaData;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -24,12 +25,23 @@ trait Web3Methods {
 	/**
 	 * Generated method GetBalance().
 	 * 
-	 * See [Zilliqa Developer Docs GetBalance](https://dev.zilliqa.com/docs/apis/1)
+	 * See [Zilliqa Developer Docs GetBalance](https://dev.zilliqa.com/docs/apis/api-account-get-balance)
 	 *
 	 * @param ZilliqaBech32 $arg1
 	 * @return ?Balance
 	 */
 	public function GetBalance(ZilliqaBech32 $arg1): ?Balance {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetCurrentDSEpoch().
+	 * 
+	 * See [Zilliqa Developer Docs GetCurrentDSEpoch](https://dev.zilliqa.com/docs/apis/api-blockchain-get-current-ds-epoch)
+	 *
+	 * @return ?ZilliqaData
+	 */
+	public function GetCurrentDSEpoch(): ?ZilliqaData {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 }
