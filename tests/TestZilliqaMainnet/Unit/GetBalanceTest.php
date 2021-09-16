@@ -11,7 +11,7 @@ use TestZilliqaMainnet\TestZilliqaClient;
  */
 class GetBalanceTest extends TestZilliqaClient
 {
-    public function testMainNetTx() {
+    public function testMainNetGetBalance() {
         // @see https://viewblock.io/zilliqa/address/zil1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq9yf6pz
         $mainNetTx = new ZilliqaBech32('zil1l4khjax278mae63ywsv3l4uj8gg4fsxh34nnzh');
         $balance = $this->web3->GetBalance($mainNetTx);

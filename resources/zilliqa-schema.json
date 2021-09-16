@@ -1,6 +1,7 @@
 {
   "methods": {
-    "GetBalance": [["Bech32"], "Balance", 1, true, "api-account-get-balance"]
+    "GetBalance": [["Bech32"], "Balance", 1, true, "api-account-get-balance"],
+    "GetCurrentDSEpoch": [[], "ZilliqaData", 0, false, "api-blockchain-get-current-ds-epoch"]
   },
   "objects": {
     "Balance": {

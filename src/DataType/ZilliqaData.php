@@ -41,6 +41,11 @@ class ZilliqaData extends ZilliqaDataType
         $this->setValue($val);
     }
 
+    public function validate($val)
+    {
+        return $val;
+    }
+
     public static function typeMap(string $type): ?string
     {
         return self::SCHEMA_MAP[$type] ?? null;

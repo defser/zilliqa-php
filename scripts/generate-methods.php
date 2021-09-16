@@ -115,7 +115,7 @@ EOF;
             ->setDescription(array(
                 "Generated method $method_name().",
                 "",
-                "See [Zilliqa Developer Docs $method_name](https://dev.zilliqa.com/docs/apis/" . $params[2] . ")",
+                "See [Zilliqa Developer Docs $method_name](https://dev.zilliqa.com/docs/apis/" . $params[4] . ")",
                 "",
             ))
             ->setParameters($methodParams)
