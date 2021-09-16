@@ -44,4 +44,15 @@ trait Web3Methods {
 	public function GetCurrentDSEpoch(): ?ZilliqaQuantity {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
+
+	/**
+	 * Generated method GetCurrentMiniEpoch().
+	 * 
+	 * See [Zilliqa Developer Docs GetCurrentMiniEpoch](https://dev.zilliqa.com/docs/apis/api-blockchain-get-current-mini-epoch)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetCurrentMiniEpoch(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
 }

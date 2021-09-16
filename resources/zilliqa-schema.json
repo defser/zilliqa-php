@@ -1,7 +1,8 @@
 {
   "methods": {
     "GetBalance": [["Bech32"], "Balance", 1, true, "api-account-get-balance"],
-    "GetCurrentDSEpoch": [[], "Quantity", 0, false, "api-blockchain-get-current-ds-epoch"]
+    "GetCurrentDSEpoch": [[], "Quantity", 0, false, "api-blockchain-get-current-ds-epoch"],
+    "GetCurrentMiniEpoch": [[], "Quantity", 0, false, "api-blockchain-get-current-mini-epoch"]
   },
   "objects": {
     "Balance": {

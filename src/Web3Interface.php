@@ -41,4 +41,13 @@ interface Web3Interface {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetCurrentDSEpoch(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetCurrentMiniEpoch().
+	 * 
+	 * See [Zilliqa Developer Docs GetCurrentMiniEpoch](https://dev.zilliqa.com/docs/apis/api-blockchain-get-current-mini-epoch)
+	 *
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetCurrentMiniEpoch(): ?ZilliqaQuantity;
 }
