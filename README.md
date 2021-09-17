@@ -1,4 +1,6 @@
-# Zilliqa-PHP [![CircleCI](https://circleci.com/gh/defser/zilliqa-php/tree/master.svg?style=svg)](https://circleci.com/gh/defser/zilliqa-php/tree/master)
+# Zilliqa-PHP
+
+[![CircleCI](https://circleci.com/gh/defser/zilliqa-php/tree/master.svg?style=svg)](https://circleci.com/gh/defser/zilliqa-php/tree/master)
 
 is a typed PHP-7.1+ interface to [Zilliqa JSON-RPC API](https://dev.zilliqa.com/docs/apis/api-introduction).
 
