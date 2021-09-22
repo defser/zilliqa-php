@@ -15,6 +15,8 @@ use Zilliqa\DataType\ZilliqaBech32;
 use Zilliqa\DataType\ZilliqaBalance;
 use Zilliqa\DataType\ZilliqaNumber;
 use Zilliqa\DataType\ZilliqaDSBlockListings;
+use Zilliqa\DataType\ZilliqaString;
+use Zilliqa\DataType\ZilliqaBlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
 
 /**
@@ -44,6 +46,16 @@ interface Web3Interface {
 	 * @return ?ZilliqaDSBlockListings
 	 */
 	public function DSBlockListing(ZilliqaNumber $arg1): ?ZilliqaDSBlockListings;
+
+	/**
+	 * Generated method GetBlockchainInfo().
+	 * 
+	 * See [Zilliqa Developer Docs GetBlockchainInfo](https://dev.zilliqa.com/docs/apis/api-blockchain-get-blockchain-info)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaBlockchainInfo
+	 */
+	public function GetBlockchainInfo(ZilliqaString $arg1): ?ZilliqaBlockchainInfo;
 
 	/**
 	 * Generated method GetCurrentDSEpoch().

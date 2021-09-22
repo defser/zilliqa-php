@@ -14,6 +14,8 @@ use Zilliqa\DataType\ZilliqaBech32;
 use Zilliqa\DataType\ZilliqaBalance;
 use Zilliqa\DataType\ZilliqaNumber;
 use Zilliqa\DataType\ZilliqaDSBlockListings;
+use Zilliqa\DataType\ZilliqaString;
+use Zilliqa\DataType\ZilliqaBlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
 
 /**
@@ -45,6 +47,18 @@ trait Web3Methods {
 	 * @return ?ZilliqaDSBlockListings
 	 */
 	public function DSBlockListing(ZilliqaNumber $arg1): ?ZilliqaDSBlockListings {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetBlockchainInfo().
+	 * 
+	 * See [Zilliqa Developer Docs GetBlockchainInfo](https://dev.zilliqa.com/docs/apis/api-blockchain-get-blockchain-info)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaBlockchainInfo
+	 */
+	public function GetBlockchainInfo(ZilliqaString $arg1): ?ZilliqaBlockchainInfo {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
