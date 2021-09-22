@@ -21,6 +21,8 @@ are generated  zilliqa-schema->objects.
 Currently these are:
 
 ```
+DSBlockListings
+DSBlockListing
 Balance
 ```
 

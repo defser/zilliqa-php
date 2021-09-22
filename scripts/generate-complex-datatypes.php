@@ -154,7 +154,6 @@ function makeConstructorParams(Array &$input): array
             $description = 'Array of ' . $subtype;
         }
 
-
         $tmp = new PhpParameter($name);
         $tmp->setType($type);
         if ($description) {
@@ -172,9 +171,11 @@ function makeProperties(array $input): array
 {
     $properties = [];
     foreach ($input['params'] as $name => $type) {
-         $p = new PhpProperty($name);
-         $p->setDescription("@var " . ZilliqaDataType::getTypeClass($type));
-         $properties[] = $p;
+        $isArray = is_array($type);
+        $t = $isArray ? $type[0] : $type;
+        $p = new PhpProperty($name);
+        $p->setDescription("@var " . ZilliqaDataType::getTypeClass($t) . ($isArray ? "[]" : ""));
+        $properties[] = $p;
     }
     return $properties;
 }
@@ -208,15 +209,7 @@ function makeToArrayBody(array $input): string
     $return = '$return = [];' . "\n";
     foreach ($input['params'] as $name => $type) {
         if (is_array($type)) {
-            $return .= '(!is_null($this->'
-                . $name
-                . ')) ? $return['
-                . "'$name'"
-                . '] = Zilliqa::valueArray($this->'
-                . $name
-                . ", '"
-                . ZilliqaDataType::getTypeClass($type[0])
-                . "') : array(); \n";
+            $return .= sprintf('!is_null($this->%s) ?? $return[\'%s\'] = \Zilliqa\Zilliqa::valueArray($this->%s, \'%s\');', $name, $name, $name, ZilliqaDataType::getTypeClass($type[0])) . "\n";
         } else {
             $return .= sprintf('!is_null($this->%s) ?? $return[\'%s\'] = $this->%s->val();', $name, $name, $name) . "\n";
         }

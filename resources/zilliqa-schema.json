@@ -1,25 +1,36 @@
 {
   "methods": {
-    "GetBalance": [["Bech32"], "Balance", 1, true, "api-account-get-balance"],
+    "GetBalance": [["Bech32"], "Balance", 1, "api-account-get-balance"],
 
-    "GetCurrentDSEpoch": [[], "Quantity", 0, false, "api-blockchain-get-current-ds-epoch"],
-    "GetCurrentMiniEpoch": [[], "Quantity", 0, false, "api-blockchain-get-current-mini-epoch"],
-    "GetNetworkId": [[], "Quantity", 0, false, "api-blockchain-get-network-id"],
-    "GetNumDSBlocks": [[], "Quantity", 0, false, "api-blockchain-num-ds-blocks"],
-    "GetNumTransactions": [[], "Quantity", 0, false, "api-blockchain-get-num-tx"],
-    "GetNumTxBlocks": [[], "Quantity", 0, false, "api-blockchain-get-num-tx-blocks"],
-    "GetPrevDifficulty": [[], "Quantity", 0, false, "api-blockchain-get-prev-difficulty"],
-    "GetPrevDSDifficulty": [[], "Quantity", 0, false, "api-blockchain-get-prev-ds-difficulty"],
-    "GetTotalCoinSupply": [[], "Quantity", 0, false, "api-blockchain-get-total-coin-supply"],
-    "GetTransactionRate": [[], "Quantity", 0, false, "api-blockchain-get-tx-rate"],
-    "GetTxBlockRate": [[], "Quantity", 0, false, "api-blockchain-get-tx-block-rate"],
+    "DSBlockListing": [["Number"], "DSBlockListings", 1, "api-blockchain-ds-block-listing"],
+    "GetCurrentDSEpoch": [[], "Quantity", 0, "api-blockchain-get-current-ds-epoch"],
+    "GetCurrentMiniEpoch": [[], "Quantity", 0, "api-blockchain-get-current-mini-epoch"],
+    "GetNetworkId": [[], "Quantity", 0, "api-blockchain-get-network-id"],
+    "GetNumDSBlocks": [[], "Quantity", 0, "api-blockchain-num-ds-blocks"],
+    "GetNumTransactions": [[], "Quantity", 0, "api-blockchain-get-num-tx"],
+    "GetNumTxBlocks": [[], "Quantity", 0, "api-blockchain-get-num-tx-blocks"],
+    "GetPrevDifficulty": [[], "Quantity", 0, "api-blockchain-get-prev-difficulty"],
+    "GetPrevDSDifficulty": [[], "Quantity", 0, "api-blockchain-get-prev-ds-difficulty"],
+    "GetTotalCoinSupply": [[], "Quantity", 0, "api-blockchain-get-total-coin-supply"],
+    "GetTransactionRate": [[], "Quantity", 0, "api-blockchain-get-tx-rate"],
+    "GetTxBlockRate": [[], "Quantity", 0, "api-blockchain-get-tx-block-rate"],
 
-    "GetMinimumGasPrice": [[], "Quantity", 0, false, "api-transaction-get-minimum-gas-price"],
-    "GetNumTxnsDSEpoch": [[], "Quantity", 0, false, "api-transaction-get-num-txns-dsepoch"],
-    "GetNumTxnsTxEpoch": [[], "Quantity", 0, false, "api-transaction-get-num-txns-txepoch"]
+    "GetMinimumGasPrice": [[], "Quantity", 0, "api-transaction-get-minimum-gas-price"],
+    "GetNumTxnsDSEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-dsepoch"],
+    "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"]
   },
   "objects": {
-    "Balance": {
+    "ZilliqaDSBlockListings": {
+      "__required": ["data", "maxPages"],
+      "data": ["DSBlockListing"],
+      "maxPages": "Number"
+    },
+    "ZilliqaDSBlockListing": {
+      "__required": ["BlockNum", "Hash"],
+      "BlockNum": "Number",
+      "Hash": "Hash"
+    },
+    "ZilliqaBalance": {
       "__required": ["balance", "nonce"],
       "balance": "Quantity",
       "nonce": "Quantity"
