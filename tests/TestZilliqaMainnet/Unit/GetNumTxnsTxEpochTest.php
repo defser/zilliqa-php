@@ -12,6 +12,5 @@ class GetNumTxnsTxEpochTest extends TestZilliqaClient
     public function testMainNetGetNumTxnsTxEpochTest() {
         $numTxnsTxEpochTest = $this->web3->GetNumTxnsTxEpoch();
         $this->assertIsNumeric($numTxnsTxEpochTest->val());
-        $this->assertTrue((int) $numTxnsTxEpochTest->val() >= 2);
     }
 }
