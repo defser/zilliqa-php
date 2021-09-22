@@ -31,8 +31,11 @@ class ZilliqaData extends ZilliqaDataType
         'Balance' => 'ZilliqaBalance',
         'DSBlockListing' => 'ZilliqaDSBlockListing',
         'DSBlockListings' => 'ZilliqaDSBlockListings',
+        'BlockchainInfo' => 'ZilliqaBlockchainInfo',
+        'ShardingStructure' => 'ZilliqaShardingStructure',
         'Quantity' => 'ZilliqaQuantity',
         'Number' => 'ZilliqaNumber',
+        'String' => 'ZilliqaString',
         'Hash' => 'ZilliqaHash'
     ];
 

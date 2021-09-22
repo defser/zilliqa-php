@@ -237,8 +237,8 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
         $type_map = $class_name::getTypeArray();
 
         foreach ($type_map as $name => $val_class) {
+            $val_class = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($val_class);
             if (isset($values[$name])) {
-                $val_class = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($val_class);
                 if (is_array($values[$name])) {
                     $sub_values = [];
                     foreach ($values[$name] as $sub_val) {
@@ -253,7 +253,15 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
                     $class_values[] = new $val_class($values[$name]);
                 }
             } else {
-                $class_values[] = null;
+                $sub_values = [];
+                foreach ($values as $sub_val) {
+                    if (is_array($sub_val)) {
+                        $sub_values[] = self::arrayToComplexType($val_class, $sub_val);
+                    } else {
+                        $sub_values[] = new $val_class($sub_val);
+                    }
+                }
+                $class_values[] = $sub_values;
             }
         }
         $return = new $class_name(...$class_values);
