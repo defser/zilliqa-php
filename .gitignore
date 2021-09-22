@@ -7,6 +7,8 @@ docs
 doc
 *generatedTest.php
 .phpunit.result.cache
+.idea
+doxygen-awesome-css
 
 !docs/.gitkeep
 
