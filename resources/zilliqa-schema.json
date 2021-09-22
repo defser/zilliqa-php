@@ -3,6 +3,7 @@
     "GetBalance": [["Bech32"], "Balance", 1, "api-account-get-balance"],
 
     "DSBlockListing": [["Number"], "DSBlockListings", 1, "api-blockchain-ds-block-listing"],
+    "GetBlockchainInfo": [["String"], "BlockchainInfo", 1, "api-blockchain-get-blockchain-info"],
     "GetCurrentDSEpoch": [[], "Quantity", 0, "api-blockchain-get-current-ds-epoch"],
     "GetCurrentMiniEpoch": [[], "Quantity", 0, "api-blockchain-get-current-mini-epoch"],
     "GetNetworkId": [[], "Quantity", 0, "api-blockchain-get-network-id"],
@@ -20,6 +21,25 @@
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"]
   },
   "objects": {
+    "ZilliqaBlockchainInfo": {
+      "__required": ["CurrentDSEpoch", "CurrentMiniEpoch", "DSBlockRate", "NumDSBlocks", "NumPeers", "NumTransactions", "NumTxBlocks", "NumTxnsDSEpoch", "NumTxnsTxEpoch", "ShardingStructure", "TransactionRate", "TxBlockRate"],
+      "CurrentDSEpoch": "Quantity",
+      "CurrentMiniEpoch": "Quantity",
+      "DSBlockRate": "Quantity",
+      "NumDSBlocks": "Quantity",
+      "NumPeers": "Quantity",
+      "NumTransactions": "Quantity",
+      "NumTxBlocks": "Quantity",
+      "NumTxnsDSEpoch": "Quantity",
+      "NumTxnsTxEpoch": "Quantity",
+      "ShardingStructure": ["ShardingStructure"],
+      "TransactionRate": "Quantity",
+      "TxBlockRate": "Quantity"
+    },
+    "ZilliqaShardingStructure": {
+      "__required": ["NumPeers"],
+      "NumPeers": ["Number"]
+    },
     "ZilliqaDSBlockListings": {
       "__required": ["data", "maxPages"],
       "data": ["DSBlockListing"],
