@@ -11,7 +11,9 @@
 namespace Zilliqa;
 
 use Zilliqa\DataType\ZilliqaBech32;
-use Zilliqa\DataType\Balance;
+use Zilliqa\DataType\ZilliqaBalance;
+use Zilliqa\DataType\ZilliqaNumber;
+use Zilliqa\DataType\ZilliqaDSBlockListings;
 use Zilliqa\DataType\ZilliqaQuantity;
 
 /**
@@ -28,9 +30,21 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs GetBalance](https://dev.zilliqa.com/docs/apis/api-account-get-balance)
 	 *
 	 * @param ZilliqaBech32 $arg1
-	 * @return ?Balance
+	 * @return ?ZilliqaBalance
 	 */
-	public function GetBalance(ZilliqaBech32 $arg1): ?Balance {
+	public function GetBalance(ZilliqaBech32 $arg1): ?ZilliqaBalance {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method DSBlockListing().
+	 * 
+	 * See [Zilliqa Developer Docs DSBlockListing](https://dev.zilliqa.com/docs/apis/api-blockchain-ds-block-listing)
+	 *
+	 * @param ZilliqaNumber $arg1
+	 * @return ?ZilliqaDSBlockListings
+	 */
+	public function DSBlockListing(ZilliqaNumber $arg1): ?ZilliqaDSBlockListings {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
