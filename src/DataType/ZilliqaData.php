@@ -28,7 +28,12 @@ class ZilliqaData extends ZilliqaDataType
         'PrivateKey' => 'ZilliqaPrivateKey',
         'PublicKey' => 'ZilliqaPublicKey',
         'Signature' => 'ZilliqaSignature',
-        'Quantity' => 'ZilliqaQuantity'
+        'Balance' => 'ZilliqaBalance',
+        'DSBlockListing' => 'ZilliqaDSBlockListing',
+        'DSBlockListings' => 'ZilliqaDSBlockListings',
+        'Quantity' => 'ZilliqaQuantity',
+        'Number' => 'ZilliqaNumber',
+        'Hash' => 'ZilliqaHash'
     ];
 
     /**
