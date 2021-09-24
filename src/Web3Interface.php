@@ -18,6 +18,7 @@ use Zilliqa\DataType\ZilliqaDSBlockListings;
 use Zilliqa\DataType\ZilliqaString;
 use Zilliqa\DataType\ZilliqaBlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
+use Zilliqa\DataType\ZilliqaDsBlock;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -74,6 +75,16 @@ interface Web3Interface {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetCurrentMiniEpoch(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetDsBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetDsBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-ds-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaDsBlock
+	 */
+	public function GetDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock;
 
 	/**
 	 * Generated method GetNetworkId().

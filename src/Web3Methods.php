@@ -17,6 +17,7 @@ use Zilliqa\DataType\ZilliqaDSBlockListings;
 use Zilliqa\DataType\ZilliqaString;
 use Zilliqa\DataType\ZilliqaBlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
+use Zilliqa\DataType\ZilliqaDsBlock;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -81,6 +82,18 @@ trait Web3Methods {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetCurrentMiniEpoch(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetDsBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetDsBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-ds-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaDsBlock
+	 */
+	public function GetDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
