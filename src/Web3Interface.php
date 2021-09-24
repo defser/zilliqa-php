@@ -19,6 +19,7 @@ use Zilliqa\DataType\ZilliqaString;
 use Zilliqa\DataType\ZilliqaBlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
 use Zilliqa\DataType\ZilliqaDsBlock;
+use Zilliqa\DataType\ZilliqaTxBlock;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -105,6 +106,16 @@ interface Web3Interface {
 	 * @return ?ZilliqaDsBlock
 	 */
 	public function GetLatestDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock;
+
+	/**
+	 * Generated method GetLatestTxBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetLatestTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-tx-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaTxBlock
+	 */
+	public function GetLatestTxBlock(ZilliqaString $arg1): ?ZilliqaTxBlock;
 
 	/**
 	 * Generated method GetNetworkId().
