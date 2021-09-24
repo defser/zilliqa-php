@@ -110,6 +110,18 @@ trait Web3Methods {
 	}
 
 	/**
+	 * Generated method GetLatestDsBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetLatestDsBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-ds-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaDsBlock
+	 */
+	public function GetLatestDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
 	 * Generated method GetNetworkId().
 	 * 
 	 * See [Zilliqa Developer Docs GetNetworkId](https://dev.zilliqa.com/docs/apis/api-blockchain-get-network-id)

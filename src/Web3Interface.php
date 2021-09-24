@@ -97,6 +97,16 @@ interface Web3Interface {
 	public function GetDSBlockRate(ZilliqaString $arg1): ?ZilliqaQuantity;
 
 	/**
+	 * Generated method GetLatestDsBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetLatestDsBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-ds-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaDsBlock
+	 */
+	public function GetLatestDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock;
+
+	/**
 	 * Generated method GetNetworkId().
 	 * 
 	 * See [Zilliqa Developer Docs GetNetworkId](https://dev.zilliqa.com/docs/apis/api-blockchain-get-network-id)
