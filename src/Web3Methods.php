@@ -98,6 +98,18 @@ trait Web3Methods {
 	}
 
 	/**
+	 * Generated method GetDSBlockRate().
+	 * 
+	 * See [Zilliqa Developer Docs GetDSBlockRate](https://dev.zilliqa.com/docs/apis/api-blockchain-get-ds-block-rate)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaQuantity
+	 */
+	public function GetDSBlockRate(ZilliqaString $arg1): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
 	 * Generated method GetNetworkId().
 	 * 
 	 * See [Zilliqa Developer Docs GetNetworkId](https://dev.zilliqa.com/docs/apis/api-blockchain-get-network-id)
