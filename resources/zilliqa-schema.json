@@ -6,9 +6,10 @@
     "GetBlockchainInfo": [["String"], "BlockchainInfo", 1, "api-blockchain-get-blockchain-info"],
     "GetCurrentDSEpoch": [[], "Quantity", 0, "api-blockchain-get-current-ds-epoch"],
     "GetCurrentMiniEpoch": [[], "Quantity", 0, "api-blockchain-get-current-mini-epoch"],
-    "GetDsBlock": [["String"], "DsBlock", 0, "api-blockchain-get-ds-block"],
-    "GetDSBlockRate": [["String"], "Quantity", 0, "api-blockchain-get-ds-block-rate"],
-    "GetLatestDsBlock": [["String"], "DsBlock", 0, "api-blockchain-get-latest-ds-block"],
+    "GetDsBlock": [["String"], "DsBlock", 1, "api-blockchain-get-ds-block"],
+    "GetDSBlockRate": [["String"], "Quantity", 1, "api-blockchain-get-ds-block-rate"],
+    "GetLatestDsBlock": [["String"], "DsBlock", 1, "api-blockchain-get-latest-ds-block"],
+    "GetLatestTxBlock": [["String"], "TxBlock", 1, "api-blockchain-get-latest-tx-block"],
     "GetNetworkId": [[], "Quantity", 0, "api-blockchain-get-network-id"],
     "GetNumDSBlocks": [[], "Quantity", 0, "api-blockchain-num-ds-blocks"],
     "GetNumTransactions": [[], "Quantity", 0, "api-blockchain-get-num-tx"],
@@ -24,6 +25,42 @@
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"]
   },
   "objects": {
+    "ZilliqaTxBlock": {
+      "__required": ["body", "header"],
+      "body" : "TxBlockBody",
+      "header": "TxBlockHeader"
+    },
+    "ZilliqaTxBlockBody": {
+      "__required": ["BlockHash", "HeaderSign", "MicroBlockInfos"],
+      "BlockHash" : "Hash",
+      "HeaderSign": "Signature",
+      "MicroBlockInfos": ["MicroBlockInfo"]
+    },
+    "ZilliqaMicroBlockInfo": {
+      "__required": ["MicroBlockHash", "MicroBlockShardId", "MicroBlockTxnRootHash"],
+      "MicroBlockHash": "Hash",
+      "MicroBlockShardId": "Number",
+      "MicroBlockTxnRootHash": "Hash"
+    },
+    "ZilliqaTxBlockHeader": {
+      "__required": ["BlockNum", "DSBlockNum", "GasLimit", "GasUsed", "MbInfoHash", "MinerPubKey", "NumMicroBlocks", "NumPages", "NumTxns", "PrevBlockHash", "Rewards", "StateDeltaHash", "StateRootHash", "Timestamp", "TxnFees", "Version"],
+      "BlockNum" : "Number",
+      "DSBlockNum": "Number",
+      "GasLimit": "Quantity",
+      "GasUsed": "Quantity",
+      "MbInfoHash": "Hash",
+      "MinerPubKey": "Hash",
+      "NumMicroBlocks": "Number",
+      "NumPages": "Number",
+      "NumTxns": "Number",
+      "PrevBlockHash": "Hash",
+      "Rewards": "Quantity",
+      "StateDeltaHash": "Hash",
+      "StateRootHash": "Hash",
+      "Timestamp": "Timestamp",
+      "TxnFees": "Quantity",
+      "Version": "Number"
+    },
     "ZilliqaDsBlock": {
       "__required": ["header", "signature"],
       "header" : "DsBlockHeader",
@@ -31,7 +68,7 @@
     },
     "ZilliqaDsBlockHeader": {
       "__required": ["BlockNum", "Difficulty", "DifficultyDS", "GasPrice", "LeaderPubKey", "PoWWinners", "PrevHash", "Timestamp"],
-      "BlockNum": "Quantity",
+      "BlockNum": "Number",
       "Difficulty": "Quantity",
       "DifficultyDS": "Quantity",
       "GasPrice": "Quantity",
