@@ -9,6 +9,7 @@
     "GetDsBlock": [["String"], "DsBlock", 1, "api-blockchain-get-ds-block"],
     "GetDSBlockRate": [["String"], "Quantity", 1, "api-blockchain-get-ds-block-rate"],
     "GetLatestDsBlock": [["String"], "DsBlock", 1, "api-blockchain-get-latest-ds-block"],
+    "GetTxBlock": [["String"], "TxBlock", 1, "api-blockchain-get-tx-block"],
     "GetLatestTxBlock": [["String"], "TxBlock", 1, "api-blockchain-get-latest-tx-block"],
     "GetNetworkId": [[], "Quantity", 0, "api-blockchain-get-network-id"],
     "GetNumDSBlocks": [[], "Quantity", 0, "api-blockchain-num-ds-blocks"],
