@@ -29,6 +29,8 @@ class ZilliqaData extends ZilliqaDataType
         'PublicKey' => 'ZilliqaPublicKey',
         'Signature' => 'ZilliqaSignature',
         'Balance' => 'ZilliqaBalance',
+        'DsBlock' => 'ZilliqaDsBlock',
+        'DsBlockHeader' => 'ZilliqaDsBlockHeader',
         'DSBlockListing' => 'ZilliqaDSBlockListing',
         'DSBlockListings' => 'ZilliqaDSBlockListings',
         'BlockchainInfo' => 'ZilliqaBlockchainInfo',
@@ -36,6 +38,7 @@ class ZilliqaData extends ZilliqaDataType
         'Quantity' => 'ZilliqaQuantity',
         'Number' => 'ZilliqaNumber',
         'String' => 'ZilliqaString',
+        'Timestamp' => 'ZilliqaTimestamp',
         'Hash' => 'ZilliqaHash'
     ];
 
