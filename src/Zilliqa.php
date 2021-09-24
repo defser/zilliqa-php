@@ -237,28 +237,32 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
         $type_map = $class_name::getTypeArray();
 
         foreach ($type_map as $name => $val_class) {
-            $val_class = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($val_class);
+            $value_class = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($val_class);
             if (isset($values[$name])) {
                 if (is_array($values[$name])) {
-                    $sub_values = [];
-                    foreach ($values[$name] as $sub_val) {
-                        if (is_array($sub_val)) {
-                            $sub_values[] = self::arrayToComplexType($val_class, $sub_val);
-                        } else {
-                            $sub_values[] = new $val_class($sub_val);
+                    if (ZilliqaDataType::getTypeClass($val_class, true) !== 'array') {
+                        $class_values[] = self::arrayToComplexType($value_class, $values[$name]);
+                    } else {
+                        $sub_values = [];
+                        foreach ($values[$name] as $sub_val) {
+                            if (is_array($sub_val)) {
+                                $sub_values[] = self::arrayToComplexType($value_class, $sub_val);
+                            } else {
+                                $sub_values[] = new $value_class($sub_val);
+                            }
                         }
+                        $class_values[] = $sub_values;
                     }
-                    $class_values[] = $sub_values;
                 } else {
-                    $class_values[] = new $val_class($values[$name]);
+                    $class_values[] = new $value_class($values[$name]);
                 }
             } else {
                 $sub_values = [];
                 foreach ($values as $sub_val) {
                     if (is_array($sub_val)) {
-                        $sub_values[] = self::arrayToComplexType($val_class, $sub_val);
+                        $sub_values[] = self::arrayToComplexType($value_class, $sub_val);
                     } else {
-                        $sub_values[] = new $val_class($sub_val);
+                        $sub_values[] = new $value_class($sub_val);
                     }
                 }
                 $class_values[] = $sub_values;
