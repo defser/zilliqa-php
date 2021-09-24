@@ -24,6 +24,6 @@ class GetDsBlockTest extends TestZilliqaClient
         $this->assertGreaterThanOrEqual(50000, $DsBlock->header->GasPrice->val());
         $this->assertGreaterThanOrEqual(1, $DsBlock->header->DifficultyDS->val());
         $this->assertGreaterThanOrEqual(1, $DsBlock->header->Difficulty->val());
-        $this->assertSame('9000', $DsBlock->header->BlockNum->val());
+        $this->assertSame(9000, $DsBlock->header->BlockNum->val());
     }
 }

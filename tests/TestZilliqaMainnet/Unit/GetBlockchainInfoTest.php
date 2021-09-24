@@ -21,7 +21,7 @@ class GetBlockchainInfoTest extends TestZilliqaClient
         $this->assertGreaterThanOrEqual(24979221, $blockchainInfo->NumTransactions->val());
         $this->assertGreaterThanOrEqual(1451512, $blockchainInfo->NumTxBlocks->val());
         $this->assertGreaterThanOrEqual(100, $blockchainInfo->NumTxnsDSEpoch->val());
-        $this->assertGreaterThanOrEqual(5, $blockchainInfo->NumTxnsTxEpoch->val());
+        $this->assertGreaterThanOrEqual(0, $blockchainInfo->NumTxnsTxEpoch->val());
         $this->assertGreaterThanOrEqual(10, $blockchainInfo->ShardingStructure[0]->NumPeers[0]->val());
         $this->assertGreaterThanOrEqual(0, $blockchainInfo->TransactionRate->val());
         $this->assertGreaterThanOrEqual(0, $blockchainInfo->TxBlockRate->val());
