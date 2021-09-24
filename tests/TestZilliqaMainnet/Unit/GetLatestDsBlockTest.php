@@ -12,8 +12,7 @@ use Zilliqa\DataType\ZilliqaString;
 class GetLatestDsBlockTest extends TestZilliqaClient
 {
     public function testMainNetGetLatestDsBlockTest() {
-        $DsBlockNumber = new ZilliqaString('');
-        $DsBlock = $this->web3->GetLatestDsBlock($DsBlockNumber);
+        $DsBlock = $this->web3->GetLatestDsBlock(new ZilliqaString(''));
         $this->assertIsString($DsBlock->signature->val());
         $this->assertEquals(128, strlen($DsBlock->signature->val()));
         $this->assertSame(DateTime::class, get_class($DsBlock->header->Timestamp->val()));

@@ -18,7 +18,7 @@ namespace Zilliqa\DataType;
 class ZilliqaDsBlockHeader extends ZilliqaDataType {
 
 	/**
-	 * @var ZilliqaQuantity
+	 * @var ZilliqaNumber
 	 */
 	public $BlockNum;
 
@@ -58,7 +58,7 @@ class ZilliqaDsBlockHeader extends ZilliqaDataType {
 	public $Timestamp;
 
 	/**
-	 * @param ZilliqaQuantity $BlockNum
+	 * @param ZilliqaNumber $BlockNum
 	 * @param ZilliqaQuantity $Difficulty
 	 * @param ZilliqaQuantity $DifficultyDS
 	 * @param ZilliqaQuantity $GasPrice
@@ -67,7 +67,7 @@ class ZilliqaDsBlockHeader extends ZilliqaDataType {
 	 * @param ZilliqaHash $PrevHash
 	 * @param ZilliqaTimestamp $Timestamp
 	 */
-	public function __construct(ZilliqaQuantity $BlockNum, ZilliqaQuantity $Difficulty, ZilliqaQuantity $DifficultyDS, ZilliqaQuantity $GasPrice, ZilliqaHash $LeaderPubKey, array $PoWWinners, ZilliqaHash $PrevHash, ZilliqaTimestamp $Timestamp) {
+	public function __construct(ZilliqaNumber $BlockNum, ZilliqaQuantity $Difficulty, ZilliqaQuantity $DifficultyDS, ZilliqaQuantity $GasPrice, ZilliqaHash $LeaderPubKey, array $PoWWinners, ZilliqaHash $PrevHash, ZilliqaTimestamp $Timestamp) {
 		$this->BlockNum = $BlockNum;  
 		$this->Difficulty = $Difficulty;  
 		$this->DifficultyDS = $DifficultyDS;  
@@ -83,7 +83,7 @@ class ZilliqaDsBlockHeader extends ZilliqaDataType {
 	 */
 	public static function getTypeArray(): array {
 		return [
-			'BlockNum' => 'ZilliqaQuantity',
+			'BlockNum' => 'ZilliqaNumber',
 			'Difficulty' => 'ZilliqaQuantity',
 			'DifficultyDS' => 'ZilliqaQuantity',
 			'GasPrice' => 'ZilliqaQuantity',
