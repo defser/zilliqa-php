@@ -7,6 +7,7 @@
     "GetCurrentDSEpoch": [[], "Quantity", 0, "api-blockchain-get-current-ds-epoch"],
     "GetCurrentMiniEpoch": [[], "Quantity", 0, "api-blockchain-get-current-mini-epoch"],
     "GetDsBlock": [["String"], "DsBlock", 0, "api-blockchain-get-ds-block"],
+    "GetDSBlockRate": [["String"], "Quantity", 0, "api-blockchain-get-ds-block-rate"],
     "GetNetworkId": [[], "Quantity", 0, "api-blockchain-get-network-id"],
     "GetNumDSBlocks": [[], "Quantity", 0, "api-blockchain-num-ds-blocks"],
     "GetNumTransactions": [[], "Quantity", 0, "api-blockchain-get-num-tx"],
