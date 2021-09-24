@@ -9,11 +9,11 @@ use Zilliqa\DataType\ZilliqaString;
  *
  * @ingroup zilliqaTests
  */
-class GetDsBlockTest extends TestZilliqaClient
+class GetLatestDsBlockTest extends TestZilliqaClient
 {
-    public function testMainNetGetDsBlockTest() {
-        $DsBlockNumber = new ZilliqaString('9000');
-        $DsBlock = $this->web3->GetDsBlock($DsBlockNumber);
+    public function testMainNetGetLatestDsBlockTest() {
+        $DsBlockNumber = new ZilliqaString('');
+        $DsBlock = $this->web3->GetLatestDsBlock($DsBlockNumber);
         $this->assertIsString($DsBlock->signature->val());
         $this->assertEquals(128, strlen($DsBlock->signature->val()));
         $this->assertSame(DateTime::class, get_class($DsBlock->header->Timestamp->val()));
@@ -24,6 +24,6 @@ class GetDsBlockTest extends TestZilliqaClient
         $this->assertGreaterThanOrEqual(50000, $DsBlock->header->GasPrice->val());
         $this->assertGreaterThanOrEqual(1, $DsBlock->header->DifficultyDS->val());
         $this->assertGreaterThanOrEqual(1, $DsBlock->header->Difficulty->val());
-        $this->assertSame('9000', $DsBlock->header->BlockNum->val());
+        $this->assertGreaterThanOrEqual('14553', $DsBlock->header->BlockNum->val());
     }
 }
