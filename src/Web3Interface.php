@@ -108,6 +108,16 @@ interface Web3Interface {
 	public function GetLatestDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock;
 
 	/**
+	 * Generated method GetTxBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?ZilliqaTxBlock
+	 */
+	public function GetTxBlock(ZilliqaString $arg1): ?ZilliqaTxBlock;
+
+	/**
 	 * Generated method GetLatestTxBlock().
 	 * 
 	 * See [Zilliqa Developer Docs GetLatestTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-tx-block)
