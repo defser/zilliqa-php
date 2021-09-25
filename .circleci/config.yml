@@ -22,7 +22,7 @@ jobs:
             pecl install pcov-1.0.6
             docker-php-ext-enable pcov
       - checkout
-      - composer/install_bin
+      - composer/install
       - phpunit/test:
           src-path: src
           test-path: tests
@@ -42,7 +42,7 @@ workflows:
           executor: default
           pre-steps:
             - run: *pcov
-            - composer/install_bin
+            - composer/install
           generate-steps:
             - phpunit/test:
                 src-path: src
