@@ -37,5 +37,8 @@ class GetTxBlockTest extends TestZilliqaClient
         $this->assertSame(DateTime::class, get_class($TxBlock->header->Timestamp->val()));
         $this->assertIsNumeric($TxBlock->header->TxnFees->val());
         $this->assertIsInt($TxBlock->header->Version->val());
+
+        $this->assertIsArray($TxBlock->header->toArray());
+        $this->assertIsArray($TxBlock->body->toArray());
     }
 }
