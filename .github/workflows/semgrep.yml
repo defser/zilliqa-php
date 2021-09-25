@@ -16,5 +16,5 @@ jobs:
         auditOn: push
         publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
         config: >-
-          p/security-audit
+          p/phpcs-security-audit
           p/secrets
