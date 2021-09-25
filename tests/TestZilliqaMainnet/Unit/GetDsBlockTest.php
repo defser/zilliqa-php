@@ -25,5 +25,8 @@ class GetDsBlockTest extends TestZilliqaClient
         $this->assertGreaterThanOrEqual(1, $DsBlock->header->DifficultyDS->val());
         $this->assertGreaterThanOrEqual(1, $DsBlock->header->Difficulty->val());
         $this->assertSame(9000, $DsBlock->header->BlockNum->val());
+
+        $this->assertIsArray($DsBlock->header->toArray());
+        $this->assertIsArray($DsBlock->toArray());
     }
 }

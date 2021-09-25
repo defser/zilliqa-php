@@ -16,5 +16,6 @@ class GetBalanceTest extends TestZilliqaClient
         $mainNetTx = new ZilliqaBech32('zil1l4khjax278mae63ywsv3l4uj8gg4fsxh34nnzh');
         $balance = $this->web3->GetBalance($mainNetTx);
         $this->assertSame(100000000.0, ZilliqaStatic::convertCurrency($balance->balance));
+        $this->assertIsArray($balance->balance->toArray());
     }
 }

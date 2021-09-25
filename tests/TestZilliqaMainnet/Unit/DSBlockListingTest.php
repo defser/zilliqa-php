@@ -17,5 +17,8 @@ class DSBlockListingTest extends TestZilliqaClient
         $this->assertGreaterThanOrEqual(14514, $DSBlockListings->data[0]->BlockNum->val());
         $this->assertIsString($DSBlockListings->data[0]->Hash->val());
         $this->assertEquals(64, strlen($DSBlockListings->data[0]->Hash->val()));
+
+        $this->assertIsArray($DSBlockListings->toArray());
+        $this->assertIsArray($DSBlockListings->data[0]->toArray());
     }
 }
