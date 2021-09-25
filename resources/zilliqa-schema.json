@@ -26,24 +26,24 @@
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"]
   },
   "objects": {
-    "ZilliqaTxBlock": {
+    "TxBlock": {
       "__required": ["body", "header"],
       "body" : "TxBlockBody",
       "header": "TxBlockHeader"
     },
-    "ZilliqaTxBlockBody": {
+    "TxBlockBody": {
       "__required": ["BlockHash", "HeaderSign", "MicroBlockInfos"],
       "BlockHash" : "Hash",
       "HeaderSign": "Signature",
       "MicroBlockInfos": ["MicroBlockInfo"]
     },
-    "ZilliqaMicroBlockInfo": {
+    "MicroBlockInfo": {
       "__required": ["MicroBlockHash", "MicroBlockShardId", "MicroBlockTxnRootHash"],
       "MicroBlockHash": "Hash",
       "MicroBlockShardId": "Number",
       "MicroBlockTxnRootHash": "Hash"
     },
-    "ZilliqaTxBlockHeader": {
+    "TxBlockHeader": {
       "__required": ["BlockNum", "DSBlockNum", "GasLimit", "GasUsed", "MbInfoHash", "MinerPubKey", "NumMicroBlocks", "NumPages", "NumTxns", "PrevBlockHash", "Rewards", "StateDeltaHash", "StateRootHash", "Timestamp", "TxnFees", "Version"],
       "BlockNum" : "Number",
       "DSBlockNum": "Number",
@@ -62,12 +62,12 @@
       "TxnFees": "Quantity",
       "Version": "Number"
     },
-    "ZilliqaDsBlock": {
+    "DsBlock": {
       "__required": ["header", "signature"],
       "header" : "DsBlockHeader",
       "signature": "Signature"
     },
-    "ZilliqaDsBlockHeader": {
+    "DsBlockHeader": {
       "__required": ["BlockNum", "Difficulty", "DifficultyDS", "GasPrice", "LeaderPubKey", "PoWWinners", "PrevHash", "Timestamp"],
       "BlockNum": "Number",
       "Difficulty": "Quantity",
@@ -78,7 +78,7 @@
       "PrevHash": "Hash",
       "Timestamp": "Timestamp"
     },
-    "ZilliqaBlockchainInfo": {
+    "BlockchainInfo": {
       "__required": ["CurrentDSEpoch", "CurrentMiniEpoch", "DSBlockRate", "NumDSBlocks", "NumPeers", "NumTransactions", "NumTxBlocks", "NumTxnsDSEpoch", "NumTxnsTxEpoch", "ShardingStructure", "TransactionRate", "TxBlockRate"],
       "CurrentDSEpoch": "Quantity",
       "CurrentMiniEpoch": "Quantity",
@@ -93,21 +93,21 @@
       "TransactionRate": "Quantity",
       "TxBlockRate": "Quantity"
     },
-    "ZilliqaShardingStructure": {
+    "ShardingStructure": {
       "__required": ["NumPeers"],
       "NumPeers": ["Number"]
     },
-    "ZilliqaDSBlockListings": {
+    "DSBlockListings": {
       "__required": ["data", "maxPages"],
       "data": ["DSBlockListing"],
       "maxPages": "Number"
     },
-    "ZilliqaDSBlockListing": {
+    "DSBlockListing": {
       "__required": ["BlockNum", "Hash"],
       "BlockNum": "Number",
       "Hash": "Hash"
     },
-    "ZilliqaBalance": {
+    "Balance": {
       "__required": ["balance", "nonce"],
       "balance": "Quantity",
       "nonce": "Quantity"

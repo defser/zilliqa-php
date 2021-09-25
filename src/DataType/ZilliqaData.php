@@ -24,26 +24,12 @@ class ZilliqaData extends ZilliqaDataType
     private const SCHEMA_MAP = [
         'Tx' => 'ZilliqaTx',
         'Bech32' => 'ZilliqaBech32',
-        'Base58' => 'ZilliqaBase58',
-        'PrivateKey' => 'ZilliqaPrivateKey',
-        'PublicKey' => 'ZilliqaPublicKey',
-        'Signature' => 'ZilliqaSignature',
-        'Balance' => 'ZilliqaBalance',
-        'DsBlock' => 'ZilliqaDsBlock',
-        'DsBlockHeader' => 'ZilliqaDsBlockHeader',
-        'DSBlockListing' => 'ZilliqaDSBlockListing',
-        'DSBlockListings' => 'ZilliqaDSBlockListings',
-        'TxBlock' => 'ZilliqaTxBlock',
-        'TxBlockBody' => 'ZilliqaTxBlockBody',
-        'TxBlockHeader' => 'ZilliqaTxBlockHeader',
-        'MicroBlockInfo' => 'ZilliqaMicroBlockInfo',
-        'BlockchainInfo' => 'ZilliqaBlockchainInfo',
-        'ShardingStructure' => 'ZilliqaShardingStructure',
         'Quantity' => 'ZilliqaQuantity',
         'Number' => 'ZilliqaNumber',
         'String' => 'ZilliqaString',
         'Timestamp' => 'ZilliqaTimestamp',
-        'Hash' => 'ZilliqaHash'
+        'Hash' => 'ZilliqaHash',
+        'Signature' => 'ZilliqaSignature'
     ];
 
     /**

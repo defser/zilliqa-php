@@ -11,14 +11,14 @@
 namespace Zilliqa;
 
 use Zilliqa\DataType\ZilliqaBech32;
-use Zilliqa\DataType\ZilliqaBalance;
+use Zilliqa\DataType\Balance;
 use Zilliqa\DataType\ZilliqaNumber;
-use Zilliqa\DataType\ZilliqaDSBlockListings;
+use Zilliqa\DataType\DSBlockListings;
 use Zilliqa\DataType\ZilliqaString;
-use Zilliqa\DataType\ZilliqaBlockchainInfo;
+use Zilliqa\DataType\BlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
-use Zilliqa\DataType\ZilliqaDsBlock;
-use Zilliqa\DataType\ZilliqaTxBlock;
+use Zilliqa\DataType\DsBlock;
+use Zilliqa\DataType\TxBlock;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -34,9 +34,9 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs GetBalance](https://dev.zilliqa.com/docs/apis/api-account-get-balance)
 	 *
 	 * @param ZilliqaBech32 $arg1
-	 * @return ?ZilliqaBalance
+	 * @return ?Balance
 	 */
-	public function GetBalance(ZilliqaBech32 $arg1): ?ZilliqaBalance {
+	public function GetBalance(ZilliqaBech32 $arg1): ?Balance {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
@@ -46,9 +46,9 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs DSBlockListing](https://dev.zilliqa.com/docs/apis/api-blockchain-ds-block-listing)
 	 *
 	 * @param ZilliqaNumber $arg1
-	 * @return ?ZilliqaDSBlockListings
+	 * @return ?DSBlockListings
 	 */
-	public function DSBlockListing(ZilliqaNumber $arg1): ?ZilliqaDSBlockListings {
+	public function DSBlockListing(ZilliqaNumber $arg1): ?DSBlockListings {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
@@ -58,9 +58,9 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs GetBlockchainInfo](https://dev.zilliqa.com/docs/apis/api-blockchain-get-blockchain-info)
 	 *
 	 * @param ZilliqaString $arg1
-	 * @return ?ZilliqaBlockchainInfo
+	 * @return ?BlockchainInfo
 	 */
-	public function GetBlockchainInfo(ZilliqaString $arg1): ?ZilliqaBlockchainInfo {
+	public function GetBlockchainInfo(ZilliqaString $arg1): ?BlockchainInfo {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
@@ -92,9 +92,9 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs GetDsBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-ds-block)
 	 *
 	 * @param ZilliqaString $arg1
-	 * @return ?ZilliqaDsBlock
+	 * @return ?DsBlock
 	 */
-	public function GetDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock {
+	public function GetDsBlock(ZilliqaString $arg1): ?DsBlock {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
@@ -116,9 +116,9 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs GetLatestDsBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-ds-block)
 	 *
 	 * @param ZilliqaString $arg1
-	 * @return ?ZilliqaDsBlock
+	 * @return ?DsBlock
 	 */
-	public function GetLatestDsBlock(ZilliqaString $arg1): ?ZilliqaDsBlock {
+	public function GetLatestDsBlock(ZilliqaString $arg1): ?DsBlock {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
@@ -128,9 +128,9 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs GetTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block)
 	 *
 	 * @param ZilliqaString $arg1
-	 * @return ?ZilliqaTxBlock
+	 * @return ?TxBlock
 	 */
-	public function GetTxBlock(ZilliqaString $arg1): ?ZilliqaTxBlock {
+	public function GetTxBlock(ZilliqaString $arg1): ?TxBlock {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
@@ -140,9 +140,9 @@ trait Web3Methods {
 	 * See [Zilliqa Developer Docs GetLatestTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-tx-block)
 	 *
 	 * @param ZilliqaString $arg1
-	 * @return ?ZilliqaTxBlock
+	 * @return ?TxBlock
 	 */
-	public function GetLatestTxBlock(ZilliqaString $arg1): ?ZilliqaTxBlock {
+	public function GetLatestTxBlock(ZilliqaString $arg1): ?TxBlock {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 

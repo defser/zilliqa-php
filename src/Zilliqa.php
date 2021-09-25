@@ -57,35 +57,35 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
 
         foreach ($this->definition['methods'] as $name => $params) {
             ${$name} = function () {
-                $request_params = [];
+                $requestParams = [];
 
                 $method = debug_backtrace()[2]['args'][0];
                 $this->debug('Called function name', $method);
 
-                $param_definition = $this->definition['methods'][$method];
+                $paramDefinition = $this->definition['methods'][$method];
 
-                $valid_arguments = $param_definition[0];
-                $argument_class_names = [];
-                if (count($valid_arguments)) {
-                    $this->debug('Valid arguments', $valid_arguments);
-                    foreach ($valid_arguments as $type) {
-                        $argument_class_names[] = ZilliqaData::typeMap($type);
+                $validArguments = $paramDefinition[0];
+                $argumentClassNames = [];
+                if (count($validArguments)) {
+                    $this->debug('Valid arguments', $validArguments);
+                    foreach ($validArguments as $type) {
+                        $argumentClassNames[] = ZilliqaData::typeMap($type);
                     }
-                    $this->debug('Valid arguments class names', $argument_class_names);
+                    $this->debug('Valid arguments class names', $argumentClassNames);
                 }
 
                 $args = func_get_args();
-                if (count($args) && isset($argument_class_names)) {
+                if (count($args) && isset($argumentClassNames)) {
                     $this->debug('Arguments', $args);
                     foreach ($args as $i => $arg) {
                         if (is_subclass_of($arg, ZilliqaDataType::class)) {
                             $argType = basename(str_replace('\\', '/', get_class($arg)));
-                            if ($argument_class_names[$i] !== $argType) {
+                            if ($argumentClassNames[$i] !== $argType) {
                                 throw new InvalidArgumentException("Argument $i is "
                                     . $argType
-                                    . " but expected $argument_class_names[$i] in $method().");
+                                    . " but expected $argumentClassNames[$i] in $method().");
                             } else {
-                                $request_params[] = $arg->val();
+                                $requestParams[] = $arg->val();
                             }
                         } else {
                             throw new InvalidArgumentException('Arg ' . $i . ' is not a ZilliqaDataType.');
@@ -93,37 +93,37 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
                     }
                 }
 
-                if (isset($param_definition[2])) {
-                    $required_params = array_slice($param_definition[0], 0, $param_definition[2]);
-                    $this->debug('Required Params', $required_params);
+                if (isset($paramDefinition[2])) {
+                    $requiredParams = array_slice($paramDefinition[0], 0, $paramDefinition[2]);
+                    $this->debug('Required Params', $requiredParams);
                 }
 
-                if (isset($required_params) && count($required_params)) {
-                    foreach ($required_params as $i => $param) {
-                        if (!isset($request_params[$i])) {
-                            throw new InvalidArgumentException("Required argument $i $argument_class_names[$i] is missing in $method().");
+                if (isset($requiredParams) && count($requiredParams)) {
+                    foreach ($requiredParams as $i => $param) {
+                        if (!isset($requestParams[$i])) {
+                            throw new InvalidArgumentException("Required argument $i $argumentClassNames[$i] is missing in $method().");
                         }
                     }
                 }
 
-                $return_type = $param_definition[1];
-                $this->debug('Return value type', $return_type);
+                $returnType = $paramDefinition[1];
+                $this->debug('Return value type', $returnType);
 
-                $is_primitive = (is_array($return_type)) ? (bool)ZilliqaData::typeMap($return_type[0]) : (bool)ZilliqaData::typeMap($return_type);
+                $isPrimitive = (is_array($returnType)) ? (bool)ZilliqaData::typeMap($returnType[0]) : (bool)ZilliqaData::typeMap($returnType);
 
-                if (is_array($return_type)) {
-                    $return_type_class = '[' . ZilliqaData::typeMap($return_type[0]) . ']';
-                } elseif ($is_primitive) {
-                    $return_type_class = ZilliqaData::typeMap($return_type);
+                if (is_array($returnType)) {
+                    $returnTypeClass = '[' . ZilliqaData::typeMap($returnType[0]) . ']';
+                } elseif ($isPrimitive) {
+                    $returnTypeClass = ZilliqaData::typeMap($returnType);
                 } else {
-                    $return_type_class = $return_type;
+                    $returnTypeClass = $returnType;
                 }
-                $this->debug('Return value Class name ', $return_type_class);
+                $this->debug('Return value Class name ', $returnTypeClass);
 
-                $this->debug('Final request params', $request_params);
-                $value = $this->zilliqaRequest($method, $request_params);
+                $this->debug('Final request params', $requestParams);
+                $value = $this->zilliqaRequest($method, $requestParams);
 
-                $return = $this->createReturnValue($value, $return_type_class, $method);
+                $return = $this->createReturnValue($value, $returnTypeClass, $method);
                 $this->debug('Final return object', $return);
                 $this->debug('<hr />');
 
@@ -145,7 +145,7 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
     /**
      * @throws Exception
      */
-    private function createReturnValue($value, string $return_type_class, string $method)
+    private function createReturnValue($value, string $returnTypeClass, string $method)
     {
         $return = null;
 
@@ -153,23 +153,23 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
             return null;
         }
 
-        $class_name = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($return_type_class);
-        $array_val = $this->isArrayType($return_type_class);
-        $is_primitive = $class_name::isPrimitive();
+        $className = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($returnTypeClass);
+        $arrayVal = $this->isArrayType($returnTypeClass);
+        $isPrimitive = $className::isPrimitive();
 
-        if ($is_primitive && $array_val && is_array($value)) {
-            $return = $this->valueArray($value, $class_name);
-        } elseif ($is_primitive && !$array_val && !is_array($value)) {
-            $return = new $class_name($value);
+        if ($isPrimitive && $arrayVal && is_array($value)) {
+            $return = $this->valueArray($value, $className);
+        } elseif ($isPrimitive && !$arrayVal && !is_array($value)) {
+            $return = new $className($value);
         }
 
-        if (!$is_primitive && !$array_val && is_array($value)) {
-            $return = $this->arrayToComplexType($class_name, $value);
+        if (!$isPrimitive && !$arrayVal && is_array($value)) {
+            $return = $this->arrayToComplexType($className, $value);
         }
 
         if (!$return && !is_array($return)) {
             throw new Exception(
-                sprintf('Expected %s at %s(), couldn not be decoded. Value was:%s', $return_type_class, $method, print_r($value, true))
+                sprintf('Expected %s at %s(), couldn not be decoded. Value was:%s', $returnTypeClass, $method, print_r($value, true))
             );
         }
 
@@ -229,49 +229,49 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
     /**
      * @throws Exception
      */
-    protected static function arrayToComplexType(string $class_name, array $values): ZilliqaDataType
+    protected static function arrayToComplexType(string $className, array $values): ZilliqaDataType
     {
-        $class_values = [];
+        $classValues = [];
 
-        /** @var $class_name ZilliqaDataType or a derived class. */
-        $type_map = $class_name::getTypeArray();
+        /** @var $className ZilliqaDataType or a derived class. */
+        $typeMap = $className::getTypeArray();
 
-        foreach ($type_map as $name => $val_class) {
-            $value_class = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($val_class);
+        foreach ($typeMap as $name => $valClass) {
+            $valueClass = '\\' . __NAMESPACE__ . '\\DataType\\' . ZilliqaDataType::getTypeClass($valClass);
             if (isset($values[$name])) {
                 if (is_array($values[$name])) {
-                    if (ZilliqaDataType::getTypeClass($val_class, true) !== 'array') {
-                        $class_values[] = self::arrayToComplexType($value_class, $values[$name]);
+                    if (ZilliqaDataType::getTypeClass($valClass, true) !== 'array') {
+                        $classValues[] = self::arrayToComplexType($valueClass, $values[$name]);
                     } else {
-                        $sub_values = [];
-                        foreach ($values[$name] as $sub_val) {
-                            if (is_array($sub_val)) {
-                                $sub_values[] = self::arrayToComplexType($value_class, $sub_val);
+                        $subValues = [];
+                        foreach ($values[$name] as $subVal) {
+                            if (is_array($subVal)) {
+                                $subValues[] = self::arrayToComplexType($valueClass, $subVal);
                             } else {
-                                $sub_values[] = new $value_class($sub_val);
+                                $subValues[] = new $valueClass($subVal);
                             }
                         }
-                        $class_values[] = $sub_values;
+                        $classValues[] = $subValues;
                     }
                 } else {
-                    $class_values[] = new $value_class($values[$name]);
+                    $classValues[] = new $valueClass($values[$name]);
                 }
             } else {
-                $sub_values = [];
-                foreach ($values as $sub_val) {
-                    if (is_array($sub_val)) {
-                        $sub_values[] = self::arrayToComplexType($value_class, $sub_val);
+                $subValues = [];
+                foreach ($values as $subVal) {
+                    if (is_array($subVal)) {
+                        $subValues[] = self::arrayToComplexType($valueClass, $subVal);
                     } else {
-                        $sub_values[] = new $value_class($sub_val);
+                        $subValues[] = new $valueClass($subVal);
                     }
                 }
-                $class_values[] = $sub_values;
+                $classValues[] = $subValues;
             }
         }
-        $return = new $class_name(...$class_values);
+        $return = new $className(...$classValues);
 
         if (!$return && !is_array($return)) {
-            throw new Exception(sprintf('Complex type %s could not be created with values: %s', $class_name, $values));
+            throw new Exception(sprintf('Complex type %s could not be created with values: %s', $className, $values));
         }
 
         return $return;
@@ -289,9 +289,11 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
         foreach ($values as $i => $val) {
             if (is_object($val)) {
                 $return[$i] = $val->toArray();
+                continue;
             }
             if (is_array($val)) {
                 $return[$i] = self::arrayToComplexType($typeClass, $val);
+                continue;
             }
             $return[$i] = new $typeClass($val);
         }

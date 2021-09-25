@@ -20,5 +20,8 @@ class DSBlockListingTest extends TestZilliqaClient
 
         $this->assertIsArray($DSBlockListings->toArray());
         $this->assertIsArray($DSBlockListings->data[0]->toArray());
+
+        $this->assertArrayHasKey('data', $DSBlockListings->toArray());
+        $this->assertArrayHasKey('maxPages', $DSBlockListings->toArray());
     }
 }

@@ -13,7 +13,6 @@ class GetBlockchainInfoTest extends TestZilliqaClient
     public function testMainNetGetBlockchainInfo() {
         $emptyString = new ZilliqaString('');
         $blockchainInfo = $this->web3->GetBlockchainInfo($emptyString);
-        $this->assertIsArray($blockchainInfo->toArray());
         $this->assertGreaterThanOrEqual(14516, $blockchainInfo->CurrentDSEpoch->val());
         $this->assertGreaterThanOrEqual(1451512, $blockchainInfo->CurrentMiniEpoch->val());
         $this->assertIsString($blockchainInfo->DSBlockRate->val());
@@ -23,9 +22,16 @@ class GetBlockchainInfoTest extends TestZilliqaClient
         $this->assertGreaterThanOrEqual(1451512, $blockchainInfo->NumTxBlocks->val());
         $this->assertGreaterThanOrEqual(100, $blockchainInfo->NumTxnsDSEpoch->val());
         $this->assertGreaterThanOrEqual(0, $blockchainInfo->NumTxnsTxEpoch->val());
-        $this->assertIsArray($blockchainInfo->ShardingStructure[0]->toArray());
         $this->assertGreaterThanOrEqual(10, $blockchainInfo->ShardingStructure[0]->NumPeers[0]->val());
         $this->assertGreaterThanOrEqual(0, $blockchainInfo->TransactionRate->val());
         $this->assertGreaterThanOrEqual(0, $blockchainInfo->TxBlockRate->val());
+
+        $this->assertIsArray($blockchainInfo->toArray());
+        $this->assertArrayHasKey('ShardingStructure', $blockchainInfo->toArray());
+        $this->assertArrayHasKey('CurrentDSEpoch', $blockchainInfo->toArray());
+        $this->assertArrayHasKey('DSBlockRate', $blockchainInfo->toArray());
+        $this->assertArrayHasKey('NumDSBlocks', $blockchainInfo->toArray());
+        $this->assertIsArray($blockchainInfo->ShardingStructure[0]->toArray());
+        $this->assertArrayHasKey('NumPeers', $blockchainInfo->ShardingStructure[0]->toArray());
     }
 }

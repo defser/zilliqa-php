@@ -28,5 +28,7 @@ class GetDsBlockTest extends TestZilliqaClient
 
         $this->assertIsArray($DsBlock->header->toArray());
         $this->assertIsArray($DsBlock->toArray());
+        $this->assertArrayHasKey('header', $DsBlock->toArray());
+        $this->assertArrayHasKey('signature', $DsBlock->toArray());
     }
 }

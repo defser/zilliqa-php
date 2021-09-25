@@ -37,9 +37,15 @@ class GetTxBlockTest extends TestZilliqaClient
         $this->assertIsNumeric($TxBlock->header->TxnFees->val());
         $this->assertIsInt($TxBlock->header->Version->val());
 
+
         $this->assertIsArray($TxBlock->toArray());
+        $this->assertArrayHasKey('header', $TxBlock->toArray());
+        $this->assertArrayHasKey('body', $TxBlock->toArray());
         $this->assertIsArray($TxBlock->header->toArray());
+        $this->assertArrayHasKey('BlockNum', $TxBlock->header->toArray());
         $this->assertIsArray($TxBlock->body->toArray());
+        $this->assertArrayHasKey('BlockHash', $TxBlock->body->toArray());
         $this->assertIsArray($TxBlock->body->MicroBlockInfos[0]->toArray());
+        $this->assertArrayHasKey('MicroBlockHash', $TxBlock->body->MicroBlockInfos[0]->toArray());
     }
 }

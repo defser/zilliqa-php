@@ -19,15 +19,6 @@ abstract class ZilliqaStatic
         return substr($str, 0, 2) === '0x';
     }
 
-    public static function removeHexPrefix(string $str): string
-    {
-        if (!self::hasHexPrefix($str)) {
-            return $str;
-        }
-
-        return substr($str, 2);
-    }
-
     public static function ensureHexPrefix(string $str): string
     {
         if (self::hasHexPrefix($str)) {
