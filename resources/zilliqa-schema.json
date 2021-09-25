@@ -30,7 +30,7 @@
     "MinerInfo": {
       "__required": ["dscommittee", "shards"],
       "dscommittee" : ["Hash"],
-      "shards": "Shard"
+      "shards": ["Shard"]
     },
     "Shard": {
       "__required": ["nodes", "size"],
