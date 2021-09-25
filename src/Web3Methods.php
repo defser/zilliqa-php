@@ -21,6 +21,7 @@ use Zilliqa\DataType\DsBlock;
 use Zilliqa\DataType\TxBlock;
 use Zilliqa\DataType\MinerInfo;
 use Zilliqa\DataType\TxBlockListings;
+use Zilliqa\DataType\RecentTransactions;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -301,6 +302,18 @@ trait Web3Methods {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetNumTxnsTxEpoch(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetRecentTransactions().
+	 * 
+	 * See [Zilliqa Developer Docs GetRecentTransactions](https://dev.zilliqa.com/docs/apis/api-transaction-get-recent-txs)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?RecentTransactions
+	 */
+	public function GetRecentTransactions(ZilliqaString $arg1): ?RecentTransactions {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 }
