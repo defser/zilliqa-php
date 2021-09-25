@@ -15,3 +15,6 @@ jobs:
       with:
         auditOn: push
         publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+        config: >-
+          p/security-audit
+          p/secrets
