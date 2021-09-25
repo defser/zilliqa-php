@@ -16,7 +16,6 @@
     ]
   },
   "require-dev": {
-    "gossi/php-code-generator": "^0.5",
     "phpunit/phpunit": "^9.0",
     "php-coveralls/php-coveralls": "^2.0"
   },
