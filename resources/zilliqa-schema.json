@@ -26,7 +26,7 @@
     "GetMinimumGasPrice": [[], "Quantity", 0, "api-transaction-get-minimum-gas-price"],
     "GetNumTxnsDSEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-dsepoch"],
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"],
-    "GetRecentTransactions": [["String"], "RecentTransactions", 0, "api-transaction-get-recent-txs"]
+    "GetRecentTransactions": [["String"], "RecentTransactions", 1, "api-transaction-get-recent-txs"]
   },
   "objects": {
     "RecentTransactions": {
