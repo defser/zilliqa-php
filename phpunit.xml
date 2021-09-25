@@ -12,4 +12,12 @@
   <php>
     <env name="SERVER_URL" value="https://api.zilliqa.com/"/>
   </php>
+  <filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">./src/</directory>
+    </whitelist>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">./tests/</directory>
+    </whitelist>
+  </filter>
 </phpunit>
