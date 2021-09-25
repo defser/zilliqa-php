@@ -10,7 +10,6 @@ Add library in a [composer.json](https://getcomposer.org/doc/01-basic-usage.md) 
 
 ```yaml
 {
-  "minimum-stability":"dev",
   "autoload": {
     "psr-4": {
       "Zilliqa\\": "src/"
