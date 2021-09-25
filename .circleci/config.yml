@@ -16,9 +16,9 @@ jobs:
     executor: default
     steps:
       - run: &pcov
-          name: Install PCOV and ${PHPIZE_DEPS} git
+          name: Install PCOV and git
           command: |-
-            apk add --update --no-cache git
+            apk add --update --no-cache ${PHPIZE_DEPS} git
             pecl install pcov-1.0.6
             docker-php-ext-enable pcov
       - checkout
