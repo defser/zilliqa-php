@@ -1,6 +1,6 @@
 # Zilliqa-PHP
 
-[![CircleCI](https://circleci.com/gh/defser/zilliqa-php/tree/master.svg?style=svg)](https://circleci.com/gh/defser/zilliqa-php/tree/master) [![Coverage Status](https://coveralls.io/repos/github/defser/zilliqa-php/badge.svg?branch=master)](https://coveralls.io/github/defser/zilliqa-php?branch=master)
+[![CircleCI](https://circleci.com/gh/defser/zilliqa-php/tree/master.svg?style=svg)](https://circleci.com/gh/defser/zilliqa-php/tree/master) [![Coverage Status](https://coveralls.io/repos/github/defser/zilliqa-php/badge.svg?branch=master)](https://coveralls.io/github/defser/zilliqa-php?branch=master) [![Code Inspector](https://www.code-inspector.com/project/29178/score/svg)]
 
 is a typed PHP-7.1+ interface to [Zilliqa JSON-RPC API](https://dev.zilliqa.com/docs/apis/api-introduction).
 
