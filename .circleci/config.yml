@@ -25,8 +25,6 @@ jobs:
       - checkout
       - composer/install
       - phpunit/test:
-          src-path: src
-          test-path: tests
           coverage: clover
           coverage-path: coverage/clover.xml
       - php-coveralls/upload:
