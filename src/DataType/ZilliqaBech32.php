@@ -26,9 +26,4 @@ class ZilliqaBech32 extends ZilliqaData
     {
         return $this->value;
     }
-
-    public function toArray(): array
-    {
-        return [$this->value];
-    }
 }
