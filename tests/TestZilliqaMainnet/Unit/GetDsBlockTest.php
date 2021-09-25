@@ -11,7 +11,7 @@ use Zilliqa\DataType\ZilliqaString;
  */
 class GetDsBlockTest extends TestZilliqaClient
 {
-    public function testMainNetGetDsBlockTest() {
+    public function testMainNetGetDsBlock() {
         $DsBlockNumber = new ZilliqaString('9000');
         $DsBlock = $this->web3->GetDsBlock($DsBlockNumber);
         $this->assertIsString($DsBlock->signature->val());

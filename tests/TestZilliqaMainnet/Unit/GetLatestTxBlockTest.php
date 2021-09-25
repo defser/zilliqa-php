@@ -11,7 +11,7 @@ use Zilliqa\DataType\ZilliqaString;
  */
 class GetLatestTxBlockTest extends TestZilliqaClient
 {
-    public function testMainNetGetLatestDsBlockTest() {
+    public function testMainNetGetLatestDsBlock() {
         $TxBlock = $this->web3->GetLatestTxBlock(new ZilliqaString(''));
         $this->assertIsString($TxBlock->body->BlockHash->val());
         $this->assertIsString($TxBlock->body->HeaderSign->val());

@@ -11,7 +11,7 @@ use Zilliqa\DataType\ZilliqaString;
  */
 class GetTxBlockTest extends TestZilliqaClient
 {
-    public function testMainNetGetTxBlockTest() {
+    public function testMainNetGetTxBlock() {
         $TxBlockNumber = new ZilliqaString('1002353');
         $TxBlock = $this->web3->GetTxBlock($TxBlockNumber);
         $this->assertIsString($TxBlock->body->BlockHash->val());

@@ -11,7 +11,7 @@ use Zilliqa\DataType\ZilliqaString;
  */
 class GetLatestDsBlockTest extends TestZilliqaClient
 {
-    public function testMainNetGetLatestDsBlockTest() {
+    public function testMainNetGetLatestDsBlock() {
         $DsBlock = $this->web3->GetLatestDsBlock(new ZilliqaString(''));
         $this->assertIsString($DsBlock->signature->val());
         $this->assertEquals(128, strlen($DsBlock->signature->val()));

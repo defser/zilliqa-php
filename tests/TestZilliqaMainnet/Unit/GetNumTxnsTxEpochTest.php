@@ -9,7 +9,7 @@ use TestZilliqaMainnet\TestZilliqaClient;
  */
 class GetNumTxnsTxEpochTest extends TestZilliqaClient
 {
-    public function testMainNetGetNumTxnsTxEpochTest() {
+    public function testMainNetGetNumTxnsTxEpoch() {
         $numTxnsTxEpochTest = $this->web3->GetNumTxnsTxEpoch();
         $this->assertIsNumeric($numTxnsTxEpochTest->val());
     }
