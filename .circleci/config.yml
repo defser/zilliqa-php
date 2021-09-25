@@ -16,7 +16,7 @@ jobs:
     executor: default
     steps:
       - run: &pcov
-          name: Install PCOV and git
+          name: Install PCOV and ${PHPIZE_DEPS} git
           command: |-
             apk add --update --no-cache git
             pecl install pcov-1.0.6
