@@ -36,16 +36,3 @@ workflows:
   integration-test_deploy:
     jobs:
       - integration-test
-      - php-coveralls/generate_upload:
-          name: integration-test-job-generate_upload
-          clover-path: coverage/clover.xml
-          executor: default
-          pre-steps:
-            - run: *pcov
-            - composer/install_bin
-          generate-steps:
-            - phpunit/test:
-                src-path: src
-                test-path: tests
-                coverage: clover
-                coverage-path: tests/coverage/clover.xml
