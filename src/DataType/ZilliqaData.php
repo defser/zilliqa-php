@@ -27,6 +27,7 @@ class ZilliqaData extends ZilliqaDataType
         'Quantity' => 'ZilliqaQuantity',
         'Number' => 'ZilliqaNumber',
         'String' => 'ZilliqaString',
+        'Boolean' => 'ZilliqaBoolean',
         'Timestamp' => 'ZilliqaTimestamp',
         'Hash' => 'ZilliqaHash',
         'Signature' => 'ZilliqaSignature'

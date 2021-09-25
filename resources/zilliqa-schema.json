@@ -26,9 +26,44 @@
     "GetMinimumGasPrice": [[], "Quantity", 0, "api-transaction-get-minimum-gas-price"],
     "GetNumTxnsDSEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-dsepoch"],
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"],
-    "GetRecentTransactions": [["String"], "RecentTransactions", 1, "api-transaction-get-recent-txs"]
+    "GetRecentTransactions": [["String"], "RecentTransactions", 1, "api-transaction-get-recent-txs"],
+    "GetTransaction": [["String"], "Transaction", 1, "api-transaction-get-tx"]
   },
   "objects": {
+    "Transaction": {
+      "__required": ["ID", "amount", "gasLimit", "gasPrice", "nonce", "receipt", "senderPubKey", "signature", "toAddr", "version"],
+      "ID" : "Hash",
+      "amount": "Quantity",
+      "gasLimit": "Quantity",
+      "gasPrice": "Quantity",
+      "nonce": "Number",
+      "receipt": "Receipt",
+      "senderPubKey": "Hash",
+      "signature": "Signature",
+      "toAddr": "Bech32",
+      "version": "Number"
+    },
+    "Receipt": {
+      "__required": ["cumulative_gas", "epoch_num", "success"],
+      "accepted" : "Boolean",
+      "cumulative_gas" : "Quantity",
+      "epoch_num": "Number",
+      "success": "Boolean",
+      "transitions": ["Transition"]
+    },
+    "Transition": {
+      "__required": ["addr", "depth", "msg"],
+      "addr" : "Bech32",
+      "depth" : "Number",
+      "msg": "Message"
+    },
+    "Message": {
+      "__required": ["_amount", "_recipient", "_tag", "params"],
+      "_amount" : "Quantity",
+      "_recipient" : "Bech32",
+      "_tag": "String",
+      "params": ["String"]
+    },
     "RecentTransactions": {
       "__required": ["TxnHashes", "number"],
       "TxnHashes" : ["Hash"],
