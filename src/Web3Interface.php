@@ -21,6 +21,7 @@ use Zilliqa\DataType\ZilliqaQuantity;
 use Zilliqa\DataType\DsBlock;
 use Zilliqa\DataType\TxBlock;
 use Zilliqa\DataType\MinerInfo;
+use Zilliqa\DataType\TxBlockListings;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -218,6 +219,16 @@ interface Web3Interface {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetTxBlockRate(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method TxBlockListing().
+	 * 
+	 * See [Zilliqa Developer Docs TxBlockListing](https://dev.zilliqa.com/docs/apis/api-blockchain-tx-block-listing)
+	 *
+	 * @param ZilliqaNumber $arg1
+	 * @return ?TxBlockListings
+	 */
+	public function TxBlockListing(ZilliqaNumber $arg1): ?TxBlockListings;
 
 	/**
 	 * Generated method GetMinimumGasPrice().

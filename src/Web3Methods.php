@@ -20,6 +20,7 @@ use Zilliqa\DataType\ZilliqaQuantity;
 use Zilliqa\DataType\DsBlock;
 use Zilliqa\DataType\TxBlock;
 use Zilliqa\DataType\MinerInfo;
+use Zilliqa\DataType\TxBlockListings;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -255,6 +256,18 @@ trait Web3Methods {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetTxBlockRate(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method TxBlockListing().
+	 * 
+	 * See [Zilliqa Developer Docs TxBlockListing](https://dev.zilliqa.com/docs/apis/api-blockchain-tx-block-listing)
+	 *
+	 * @param ZilliqaNumber $arg1
+	 * @return ?TxBlockListings
+	 */
+	public function TxBlockListing(ZilliqaNumber $arg1): ?TxBlockListings {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 

@@ -21,12 +21,23 @@
     "GetTransactionRate": [[], "Quantity", 0, "api-blockchain-get-tx-rate"],
     "GetTxBlock": [["String"], "TxBlock", 1, "api-blockchain-get-tx-block"],
     "GetTxBlockRate": [[], "Quantity", 0, "api-blockchain-get-tx-block-rate"],
+    "TxBlockListing": [["Number"], "TxBlockListings", 1, "api-blockchain-tx-block-listing"],
 
     "GetMinimumGasPrice": [[], "Quantity", 0, "api-transaction-get-minimum-gas-price"],
     "GetNumTxnsDSEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-dsepoch"],
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"]
   },
   "objects": {
+    "TxBlockListings": {
+      "__required": ["data", "maxPages"],
+      "data" : ["TxBlockListing"],
+      "maxPages": "Number"
+    },
+    "TxBlockListing": {
+      "__required": ["BlockNum", "Hash"],
+      "BlockNum" : "Number",
+      "Hash": "Hash"
+    },
     "MinerInfo": {
       "__required": ["dscommittee", "shards"],
       "dscommittee" : ["Hash"],
