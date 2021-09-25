@@ -23,7 +23,7 @@ Add library in a [composer.json](https://getcomposer.org/doc/01-basic-usage.md) 
     }
   ],
   "require": {
-    "defser/zilliqa-php": "dev-master"
+    "defser/zilliqa-php": "^1.0"
   }
 }
 ```
