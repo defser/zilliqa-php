@@ -19,6 +19,7 @@ use Zilliqa\DataType\BlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
 use Zilliqa\DataType\DsBlock;
 use Zilliqa\DataType\TxBlock;
+use Zilliqa\DataType\MinerInfo;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -123,18 +124,6 @@ trait Web3Methods {
 	}
 
 	/**
-	 * Generated method GetTxBlock().
-	 * 
-	 * See [Zilliqa Developer Docs GetTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block)
-	 *
-	 * @param ZilliqaString $arg1
-	 * @return ?TxBlock
-	 */
-	public function GetTxBlock(ZilliqaString $arg1): ?TxBlock {
-		return $this->__call(__FUNCTION__, func_get_args());
-	}
-
-	/**
 	 * Generated method GetLatestTxBlock().
 	 * 
 	 * See [Zilliqa Developer Docs GetLatestTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-tx-block)
@@ -143,6 +132,18 @@ trait Web3Methods {
 	 * @return ?TxBlock
 	 */
 	public function GetLatestTxBlock(ZilliqaString $arg1): ?TxBlock {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetMinerInfo().
+	 * 
+	 * See [Zilliqa Developer Docs GetMinerInfo](https://dev.zilliqa.com/docs/apis/api-blockchain-get-miner-info)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?MinerInfo
+	 */
+	public function GetMinerInfo(ZilliqaString $arg1): ?MinerInfo {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
@@ -231,6 +232,18 @@ trait Web3Methods {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetTransactionRate(): ?ZilliqaQuantity {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method GetTxBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?TxBlock
+	 */
+	public function GetTxBlock(ZilliqaString $arg1): ?TxBlock {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 

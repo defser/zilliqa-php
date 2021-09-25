@@ -20,6 +20,7 @@ use Zilliqa\DataType\BlockchainInfo;
 use Zilliqa\DataType\ZilliqaQuantity;
 use Zilliqa\DataType\DsBlock;
 use Zilliqa\DataType\TxBlock;
+use Zilliqa\DataType\MinerInfo;
 
 /**
  * Zilliqa JsonRPC Methods.
@@ -108,16 +109,6 @@ interface Web3Interface {
 	public function GetLatestDsBlock(ZilliqaString $arg1): ?DsBlock;
 
 	/**
-	 * Generated method GetTxBlock().
-	 * 
-	 * See [Zilliqa Developer Docs GetTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block)
-	 *
-	 * @param ZilliqaString $arg1
-	 * @return ?TxBlock
-	 */
-	public function GetTxBlock(ZilliqaString $arg1): ?TxBlock;
-
-	/**
 	 * Generated method GetLatestTxBlock().
 	 * 
 	 * See [Zilliqa Developer Docs GetLatestTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-latest-tx-block)
@@ -126,6 +117,16 @@ interface Web3Interface {
 	 * @return ?TxBlock
 	 */
 	public function GetLatestTxBlock(ZilliqaString $arg1): ?TxBlock;
+
+	/**
+	 * Generated method GetMinerInfo().
+	 * 
+	 * See [Zilliqa Developer Docs GetMinerInfo](https://dev.zilliqa.com/docs/apis/api-blockchain-get-miner-info)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?MinerInfo
+	 */
+	public function GetMinerInfo(ZilliqaString $arg1): ?MinerInfo;
 
 	/**
 	 * Generated method GetNetworkId().
@@ -198,6 +199,16 @@ interface Web3Interface {
 	 * @return ?ZilliqaQuantity
 	 */
 	public function GetTransactionRate(): ?ZilliqaQuantity;
+
+	/**
+	 * Generated method GetTxBlock().
+	 * 
+	 * See [Zilliqa Developer Docs GetTxBlock](https://dev.zilliqa.com/docs/apis/api-blockchain-get-tx-block)
+	 *
+	 * @param ZilliqaString $arg1
+	 * @return ?TxBlock
+	 */
+	public function GetTxBlock(ZilliqaString $arg1): ?TxBlock;
 
 	/**
 	 * Generated method GetTxBlockRate().
