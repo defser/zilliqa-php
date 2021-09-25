@@ -21,6 +21,7 @@ jobs:
             apk add --update --no-cache ${PHPIZE_DEPS} git
             pecl install pcov-1.0.6
             docker-php-ext-enable pcov
+      - composer/install_bin
       - checkout
       - composer/install
       - phpunit/test:
@@ -42,7 +43,7 @@ workflows:
           executor: default
           pre-steps:
             - run: *pcov
-            - composer/install
+            - composer/install_bin
           generate-steps:
             - phpunit/test:
                 src-path: src
