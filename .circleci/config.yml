@@ -39,7 +39,6 @@ workflows:
       - php-coveralls/generate_upload:
           name: integration-test-job-generate_upload
           clover-path: coverage/clover.xml
-          root-dir: tests
           executor: default
           pre-steps:
             - run: *pcov
