@@ -22,6 +22,7 @@ use Zilliqa\DataType\TxBlock;
 use Zilliqa\DataType\MinerInfo;
 use Zilliqa\DataType\TxBlockListings;
 use Zilliqa\DataType\RecentTransactions;
+use Zilliqa\DataType\ZilliqaHash;
 use Zilliqa\DataType\Transaction;
 
 /**
@@ -323,10 +324,10 @@ trait Web3Methods {
 	 * 
 	 * See [Zilliqa Developer Docs GetTransaction](https://dev.zilliqa.com/docs/apis/api-transaction-get-tx)
 	 *
-	 * @param ZilliqaString $arg1
+	 * @param ZilliqaHash $arg1
 	 * @return ?Transaction
 	 */
-	public function GetTransaction(ZilliqaString $arg1): ?Transaction {
+	public function GetTransaction(ZilliqaHash $arg1): ?Transaction {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 }
