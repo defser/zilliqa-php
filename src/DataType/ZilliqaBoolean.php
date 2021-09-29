@@ -8,16 +8,12 @@ class ZilliqaBoolean extends ZilliqaData
 {
     protected $value;
 
-    public function validate(bool $val): int
+    public function validate(bool $val): bool
     {
-        if (! is_bool($val)) {
-            throw new InvalidArgumentException('Value is not a boolean: ' . $val);
-        }
-
-        return (int) $val;
+        return $val;
     }
 
-    public function val(): int
+    public function val(): bool
     {
         return $this->value;
     }
