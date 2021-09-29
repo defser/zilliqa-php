@@ -23,7 +23,7 @@ class Message extends ZilliqaDataType {
 	public $_amount;
 
 	/**
-	 * @var ZilliqaBech32
+	 * @var ZilliqaHash
 	 */
 	public $_recipient;
 
@@ -39,14 +39,14 @@ class Message extends ZilliqaDataType {
 
 	/**
 	 * @param ZilliqaQuantity $_amount
-	 * @param ZilliqaBech32 $_recipient
+	 * @param ZilliqaHash $_recipient
 	 * @param ZilliqaString $_tag
 	 * @param array $params Array of ZilliqaString
 	 */
-	public function __construct(ZilliqaQuantity $_amount, ZilliqaBech32 $_recipient, ZilliqaString $_tag, array $params) {
-		$this->_amount = $_amount;  
-		$this->_recipient = $_recipient;  
-		$this->_tag = $_tag;  
+	public function __construct(ZilliqaQuantity $_amount, ZilliqaHash $_recipient, ZilliqaString $_tag, array $params) {
+		$this->_amount = $_amount;
+		$this->_recipient = $_recipient;
+		$this->_tag = $_tag;
 		$this->params = $params;
 	}
 
@@ -56,7 +56,7 @@ class Message extends ZilliqaDataType {
 	public static function getTypeArray(): array {
 		return [
 			'_amount' => 'ZilliqaQuantity',
-			'_recipient' => 'ZilliqaBech32',
+			'_recipient' => 'ZilliqaHash',
 			'_tag' => 'ZilliqaString',
 			'params' => '[ZilliqaString]',
 		];
@@ -69,10 +69,10 @@ class Message extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'_amount' => $this->_amount->val(),
-			'_recipient' => $this->_recipient->val(),
-			'_tag' => $this->_tag->val(),
-			'params' => \Zilliqa\Zilliqa::valueArray($this->params, 'ZilliqaString'),
+			'_amount' => !is_null($this->_amount) ?? $this->_amount->val(),
+			'_recipient' => !is_null($this->_recipient) ?? $this->_recipient->val(),
+			'_tag' => !is_null($this->_tag) ?? $this->_tag->val(),
+			'params' => !is_null($this->params) ?? \Zilliqa\Zilliqa::valueArray($this->params, 'ZilliqaString'),
 		];
 	}
 }
