@@ -21,17 +21,27 @@ are generated  zilliqa-schema->objects.
 Currently these are:
 
 ```
-Balance
-BlockchainInfo
-DsBlock
-DsBlockHeader
-DSBlockListing
-DSBlockListings
-MicroBlockInfo
-ShardingStructure
+Transaction
+Receipt
+Exception
+Transition
+Message
+RecentTransactions
+TxBlockListings
+TxBlockListing
+MinerInfo
+Shard
 TxBlock
 TxBlockBody
+MicroBlockInfo
 TxBlockHeader
+DsBlock
+DsBlockHeader
+BlockchainInfo
+ShardingStructure
+DSBlockListings
+DSBlockListing
+Balance
 ```
 
 To regenerate run
