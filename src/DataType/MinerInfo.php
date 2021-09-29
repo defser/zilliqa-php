@@ -32,7 +32,7 @@ class MinerInfo extends ZilliqaDataType {
 	 * @param array $shards Array of Shard
 	 */
 	public function __construct(array $dscommittee, array $shards) {
-		$this->dscommittee = $dscommittee;  
+		$this->dscommittee = $dscommittee;
 		$this->shards = $shards;
 	}
 
@@ -53,8 +53,8 @@ class MinerInfo extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'dscommittee' => \Zilliqa\Zilliqa::valueArray($this->dscommittee, 'ZilliqaHash'),
-			'shards' => \Zilliqa\Zilliqa::valueArray($this->shards, 'Shard'),
+			'dscommittee' => !is_null($this->dscommittee) ?? \Zilliqa\Zilliqa::valueArray($this->dscommittee, 'ZilliqaHash'),
+			'shards' => !is_null($this->shards) ?? \Zilliqa\Zilliqa::valueArray($this->shards, 'Shard'),
 		];
 	}
 }
