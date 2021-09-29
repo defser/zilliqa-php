@@ -27,7 +27,7 @@
     "GetNumTxnsDSEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-dsepoch"],
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"],
     "GetRecentTransactions": [["String"], "RecentTransactions", 1, "api-transaction-get-recent-txs"],
-    "GetTransaction": [["String"], "Transaction", 1, "api-transaction-get-tx"]
+    "GetTransaction": [["Hash"], "Transaction", 1, "api-transaction-get-tx"]
   },
   "objects": {
     "Transaction": {
@@ -40,27 +40,35 @@
       "receipt": "Receipt",
       "senderPubKey": "Hash",
       "signature": "Signature",
-      "toAddr": "Bech32",
-      "version": "Number"
+      "toAddr": "Hash",
+      "version": "Number",
+      "code": "String",
+      "data": "String"
     },
     "Receipt": {
       "__required": ["cumulative_gas", "epoch_num", "success"],
-      "accepted" : "Boolean",
       "cumulative_gas" : "Quantity",
       "epoch_num": "Number",
       "success": "Boolean",
-      "transitions": ["Transition"]
+      "accepted" : "Boolean",
+      "transitions": ["Transition"],
+      "exceptions": ["Exception"]
+    },
+    "Exception": {
+      "__required": ["line", "message"],
+      "line": "Number",
+      "message": "String"
     },
     "Transition": {
       "__required": ["addr", "depth", "msg"],
-      "addr" : "Bech32",
+      "addr" : "Hash",
       "depth" : "Number",
       "msg": "Message"
     },
     "Message": {
       "__required": ["_amount", "_recipient", "_tag", "params"],
       "_amount" : "Quantity",
-      "_recipient" : "Bech32",
+      "_recipient" : "Hash",
       "_tag": "String",
       "params": ["String"]
     },
