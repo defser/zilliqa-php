@@ -32,7 +32,7 @@ class Balance extends ZilliqaDataType {
 	 * @param ZilliqaQuantity $nonce
 	 */
 	public function __construct(ZilliqaQuantity $balance, ZilliqaQuantity $nonce) {
-		$this->balance = $balance;  
+		$this->balance = $balance;
 		$this->nonce = $nonce;
 	}
 
@@ -53,8 +53,8 @@ class Balance extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'balance' => $this->balance->val(),
-			'nonce' => $this->nonce->val(),
+			'balance' => !is_null($this->balance) ?? $this->balance->val(),
+			'nonce' => !is_null($this->nonce) ?? $this->nonce->val(),
 		];
 	}
 }

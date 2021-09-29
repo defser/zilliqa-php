@@ -92,17 +92,17 @@ class BlockchainInfo extends ZilliqaDataType {
 	 * @param ZilliqaQuantity $TxBlockRate
 	 */
 	public function __construct(ZilliqaQuantity $CurrentDSEpoch, ZilliqaQuantity $CurrentMiniEpoch, ZilliqaQuantity $DSBlockRate, ZilliqaQuantity $NumDSBlocks, ZilliqaQuantity $NumPeers, ZilliqaQuantity $NumTransactions, ZilliqaQuantity $NumTxBlocks, ZilliqaQuantity $NumTxnsDSEpoch, ZilliqaQuantity $NumTxnsTxEpoch, array $ShardingStructure, ZilliqaQuantity $TransactionRate, ZilliqaQuantity $TxBlockRate) {
-		$this->CurrentDSEpoch = $CurrentDSEpoch;  
-		$this->CurrentMiniEpoch = $CurrentMiniEpoch;  
-		$this->DSBlockRate = $DSBlockRate;  
-		$this->NumDSBlocks = $NumDSBlocks;  
-		$this->NumPeers = $NumPeers;  
-		$this->NumTransactions = $NumTransactions;  
-		$this->NumTxBlocks = $NumTxBlocks;  
-		$this->NumTxnsDSEpoch = $NumTxnsDSEpoch;  
-		$this->NumTxnsTxEpoch = $NumTxnsTxEpoch;  
-		$this->ShardingStructure = $ShardingStructure;  
-		$this->TransactionRate = $TransactionRate;  
+		$this->CurrentDSEpoch = $CurrentDSEpoch;
+		$this->CurrentMiniEpoch = $CurrentMiniEpoch;
+		$this->DSBlockRate = $DSBlockRate;
+		$this->NumDSBlocks = $NumDSBlocks;
+		$this->NumPeers = $NumPeers;
+		$this->NumTransactions = $NumTransactions;
+		$this->NumTxBlocks = $NumTxBlocks;
+		$this->NumTxnsDSEpoch = $NumTxnsDSEpoch;
+		$this->NumTxnsTxEpoch = $NumTxnsTxEpoch;
+		$this->ShardingStructure = $ShardingStructure;
+		$this->TransactionRate = $TransactionRate;
 		$this->TxBlockRate = $TxBlockRate;
 	}
 
@@ -133,18 +133,18 @@ class BlockchainInfo extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'CurrentDSEpoch' => $this->CurrentDSEpoch->val(),
-			'CurrentMiniEpoch' => $this->CurrentMiniEpoch->val(),
-			'DSBlockRate' => $this->DSBlockRate->val(),
-			'NumDSBlocks' => $this->NumDSBlocks->val(),
-			'NumPeers' => $this->NumPeers->val(),
-			'NumTransactions' => $this->NumTransactions->val(),
-			'NumTxBlocks' => $this->NumTxBlocks->val(),
-			'NumTxnsDSEpoch' => $this->NumTxnsDSEpoch->val(),
-			'NumTxnsTxEpoch' => $this->NumTxnsTxEpoch->val(),
-			'ShardingStructure' => \Zilliqa\Zilliqa::valueArray($this->ShardingStructure, 'ShardingStructure'),
-			'TransactionRate' => $this->TransactionRate->val(),
-			'TxBlockRate' => $this->TxBlockRate->val(),
+			'CurrentDSEpoch' => !is_null($this->CurrentDSEpoch) ?? $this->CurrentDSEpoch->val(),
+			'CurrentMiniEpoch' => !is_null($this->CurrentMiniEpoch) ?? $this->CurrentMiniEpoch->val(),
+			'DSBlockRate' => !is_null($this->DSBlockRate) ?? $this->DSBlockRate->val(),
+			'NumDSBlocks' => !is_null($this->NumDSBlocks) ?? $this->NumDSBlocks->val(),
+			'NumPeers' => !is_null($this->NumPeers) ?? $this->NumPeers->val(),
+			'NumTransactions' => !is_null($this->NumTransactions) ?? $this->NumTransactions->val(),
+			'NumTxBlocks' => !is_null($this->NumTxBlocks) ?? $this->NumTxBlocks->val(),
+			'NumTxnsDSEpoch' => !is_null($this->NumTxnsDSEpoch) ?? $this->NumTxnsDSEpoch->val(),
+			'NumTxnsTxEpoch' => !is_null($this->NumTxnsTxEpoch) ?? $this->NumTxnsTxEpoch->val(),
+			'ShardingStructure' => !is_null($this->ShardingStructure) ?? \Zilliqa\Zilliqa::valueArray($this->ShardingStructure, 'ShardingStructure'),
+			'TransactionRate' => !is_null($this->TransactionRate) ?? $this->TransactionRate->val(),
+			'TxBlockRate' => !is_null($this->TxBlockRate) ?? $this->TxBlockRate->val(),
 		];
 	}
 }

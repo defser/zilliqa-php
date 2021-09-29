@@ -32,7 +32,7 @@ class DsBlock extends ZilliqaDataType {
 	 * @param ZilliqaSignature $signature
 	 */
 	public function __construct($header, ZilliqaSignature $signature) {
-		$this->header = $header;  
+		$this->header = $header;
 		$this->signature = $signature;
 	}
 
@@ -53,8 +53,8 @@ class DsBlock extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'header' => $this->header->toArray(),
-			'signature' => $this->signature->val(),
+			'header' => !is_null($this->header) ?? $this->header->toArray(),
+			'signature' => !is_null($this->signature) ?? $this->signature->val(),
 		];
 	}
 }

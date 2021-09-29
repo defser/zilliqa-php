@@ -68,13 +68,13 @@ class DsBlockHeader extends ZilliqaDataType {
 	 * @param ZilliqaTimestamp $Timestamp
 	 */
 	public function __construct(ZilliqaNumber $BlockNum, ZilliqaQuantity $Difficulty, ZilliqaQuantity $DifficultyDS, ZilliqaQuantity $GasPrice, ZilliqaHash $LeaderPubKey, array $PoWWinners, ZilliqaHash $PrevHash, ZilliqaTimestamp $Timestamp) {
-		$this->BlockNum = $BlockNum;  
-		$this->Difficulty = $Difficulty;  
-		$this->DifficultyDS = $DifficultyDS;  
-		$this->GasPrice = $GasPrice;  
-		$this->LeaderPubKey = $LeaderPubKey;  
-		$this->PoWWinners = $PoWWinners;  
-		$this->PrevHash = $PrevHash;  
+		$this->BlockNum = $BlockNum;
+		$this->Difficulty = $Difficulty;
+		$this->DifficultyDS = $DifficultyDS;
+		$this->GasPrice = $GasPrice;
+		$this->LeaderPubKey = $LeaderPubKey;
+		$this->PoWWinners = $PoWWinners;
+		$this->PrevHash = $PrevHash;
 		$this->Timestamp = $Timestamp;
 	}
 
@@ -101,14 +101,14 @@ class DsBlockHeader extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'BlockNum' => $this->BlockNum->val(),
-			'Difficulty' => $this->Difficulty->val(),
-			'DifficultyDS' => $this->DifficultyDS->val(),
-			'GasPrice' => $this->GasPrice->val(),
-			'LeaderPubKey' => $this->LeaderPubKey->val(),
-			'PoWWinners' => \Zilliqa\Zilliqa::valueArray($this->PoWWinners, 'ZilliqaHash'),
-			'PrevHash' => $this->PrevHash->val(),
-			'Timestamp' => $this->Timestamp->val(),
+			'BlockNum' => !is_null($this->BlockNum) ?? $this->BlockNum->val(),
+			'Difficulty' => !is_null($this->Difficulty) ?? $this->Difficulty->val(),
+			'DifficultyDS' => !is_null($this->DifficultyDS) ?? $this->DifficultyDS->val(),
+			'GasPrice' => !is_null($this->GasPrice) ?? $this->GasPrice->val(),
+			'LeaderPubKey' => !is_null($this->LeaderPubKey) ?? $this->LeaderPubKey->val(),
+			'PoWWinners' => !is_null($this->PoWWinners) ?? \Zilliqa\Zilliqa::valueArray($this->PoWWinners, 'ZilliqaHash'),
+			'PrevHash' => !is_null($this->PrevHash) ?? $this->PrevHash->val(),
+			'Timestamp' => !is_null($this->Timestamp) ?? $this->Timestamp->val(),
 		];
 	}
 }
