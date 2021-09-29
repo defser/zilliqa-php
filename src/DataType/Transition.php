@@ -18,7 +18,7 @@ namespace Zilliqa\DataType;
 class Transition extends ZilliqaDataType {
 
 	/**
-	 * @var ZilliqaBech32
+	 * @var ZilliqaHash
 	 */
 	public $addr;
 
@@ -33,13 +33,13 @@ class Transition extends ZilliqaDataType {
 	public $msg;
 
 	/**
-	 * @param ZilliqaBech32 $addr
+	 * @param ZilliqaHash $addr
 	 * @param ZilliqaNumber $depth
 	 * @param $msg
 	 */
-	public function __construct(ZilliqaBech32 $addr, ZilliqaNumber $depth, $msg) {
-		$this->addr = $addr;  
-		$this->depth = $depth;  
+	public function __construct(ZilliqaHash $addr, ZilliqaNumber $depth, $msg) {
+		$this->addr = $addr;
+		$this->depth = $depth;
 		$this->msg = $msg;
 	}
 
@@ -48,7 +48,7 @@ class Transition extends ZilliqaDataType {
 	 */
 	public static function getTypeArray(): array {
 		return [
-			'addr' => 'ZilliqaBech32',
+			'addr' => 'ZilliqaHash',
 			'depth' => 'ZilliqaNumber',
 			'msg' => 'Message',
 		];
@@ -61,9 +61,9 @@ class Transition extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'addr' => $this->addr->val(),
-			'depth' => $this->depth->val(),
-			'msg' => $this->msg->toArray(),
+			'addr' => !is_null($this->addr) ?? $this->addr->val(),
+			'depth' => !is_null($this->depth) ?? $this->depth->val(),
+			'msg' => !is_null($this->msg) ?? $this->msg->toArray(),
 		];
 	}
 }
