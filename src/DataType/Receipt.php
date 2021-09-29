@@ -33,28 +33,35 @@ class Receipt extends ZilliqaDataType {
 	public $success;
 
 	/**
-	 * @var ZilliqaBoolean
+	 * @var ?ZilliqaBoolean
 	 */
 	public $accepted;
 
 	/**
-	 * @var Transition[]
+	 * @var ?Transition[]
 	 */
 	public $transitions;
+
+	/**
+	 * @var ?Exception[]
+	 */
+	public $exceptions;
 
 	/**
 	 * @param ZilliqaQuantity $cumulative_gas
 	 * @param ZilliqaNumber $epoch_num
 	 * @param ZilliqaBoolean $success
-	 * @param ZilliqaBoolean $accepted
-	 * @param array $transitions Array of Transition
+	 * @param ?ZilliqaBoolean $accepted
+	 * @param ?array $transitions Array of Transition
+	 * @param ?array $exceptions Array of Exception
 	 */
-	public function __construct(ZilliqaQuantity $cumulative_gas, ZilliqaNumber $epoch_num, ZilliqaBoolean $success, ZilliqaBoolean $accepted = null, array $transitions = null) {
-		$this->cumulative_gas = $cumulative_gas;  
-		$this->epoch_num = $epoch_num;  
-		$this->success = $success;  
-		$this->accepted = $accepted;  
+	public function __construct(ZilliqaQuantity $cumulative_gas, ZilliqaNumber $epoch_num, ZilliqaBoolean $success, ?ZilliqaBoolean $accepted = null, ?array $transitions = null, ?array $exceptions = null) {
+		$this->cumulative_gas = $cumulative_gas;
+		$this->epoch_num = $epoch_num;
+		$this->success = $success;
+		$this->accepted = $accepted;
 		$this->transitions = $transitions;
+		$this->exceptions = $exceptions;
 	}
 
 	/**
@@ -67,6 +74,7 @@ class Receipt extends ZilliqaDataType {
 			'success' => 'ZilliqaBoolean',
 			'accepted' => 'ZilliqaBoolean',
 			'transitions' => '[Transition]',
+			'exceptions' => '[Exception]',
 		];
 	}
 
@@ -77,11 +85,12 @@ class Receipt extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'cumulative_gas' => $this->cumulative_gas->val(),
-			'epoch_num' => $this->epoch_num->val(),
-			'success' => $this->success->val(),
-			'accepted' => $this->accepted->val(),
-			'transitions' => \Zilliqa\Zilliqa::valueArray($this->transitions, 'Transition'),
+			'cumulative_gas' => !is_null($this->cumulative_gas) ?? $this->cumulative_gas->val(),
+			'epoch_num' => !is_null($this->epoch_num) ?? $this->epoch_num->val(),
+			'success' => !is_null($this->success) ?? $this->success->val(),
+			'accepted' => !is_null($this->accepted) ?? $this->accepted->val(),
+			'transitions' => !is_null($this->transitions) ?? \Zilliqa\Zilliqa::valueArray($this->transitions, 'Transition'),
+			'exceptions' => !is_null($this->exceptions) ?? \Zilliqa\Zilliqa::valueArray($this->exceptions, 'Exception'),
 		];
 	}
 }
