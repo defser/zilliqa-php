@@ -13,6 +13,7 @@ class GetMinerInfoTest extends TestZilliqaClient
     public function testGetMinerInfo() {
         $minerInfo = $this->web3->GetMinerInfo(new ZilliqaString('5500'));
         $this->assertIsString($minerInfo->dscommittee[0]->val());
+        $this->assertIsArray($minerInfo->shards[0]->toArray());
         $this->assertIsString($minerInfo->shards[0]->nodes[0]->val());
         $this->assertIsNumeric($minerInfo->shards[0]->size->val());
 
