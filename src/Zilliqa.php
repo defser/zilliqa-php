@@ -229,7 +229,7 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
     /**
      * @throws Exception
      */
-    protected static function arrayToComplexType(string $className, array $values): ZilliqaDataType
+    protected static function arrayToComplexType(string $className, array $values, bool $initial = true): ZilliqaDataType
     {
         $classValues = [];
 
@@ -246,7 +246,7 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
                         $subValues = [];
                         foreach ($values[$name] as $subVal) {
                             if (is_array($subVal)) {
-                                $subValues[] = self::arrayToComplexType($valueClass, $subVal);
+                                $subValues[] = self::arrayToComplexType($valueClass, $subVal, false);
                             } else {
                                 $subValues[] = new $valueClass($subVal);
                             }
@@ -257,10 +257,14 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
                     $classValues[] = new $valueClass($values[$name]);
                 }
             } else {
+                if ($initial) {
+                    $classValues[] = null;
+                    continue;
+                }
                 $subValues = [];
                 foreach ($values as $subVal) {
                     if (is_array($subVal)) {
-                        $subValues[] = self::arrayToComplexType($valueClass, $subVal);
+                        $subValues[] = self::arrayToComplexType($valueClass, $subVal, false);
                     } else {
                         $subValues[] = new $valueClass($subVal);
                     }
@@ -268,6 +272,7 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
                 $classValues[] = $subValues;
             }
         }
+
         $return = new $className(...$classValues);
 
         if (!$return && !is_array($return)) {
