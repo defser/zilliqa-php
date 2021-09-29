@@ -58,7 +58,7 @@ class Transaction extends ZilliqaDataType {
 	public $signature;
 
 	/**
-	 * @var ZilliqaBech32
+	 * @var ZilliqaHash
 	 */
 	public $toAddr;
 
@@ -66,6 +66,16 @@ class Transaction extends ZilliqaDataType {
 	 * @var ZilliqaNumber
 	 */
 	public $version;
+
+	/**
+	 * @var ?ZilliqaString
+	 */
+	public $code;
+
+	/**
+	 * @var ?ZilliqaString
+	 */
+	public $data;
 
 	/**
 	 * @param ZilliqaHash $ID
@@ -76,20 +86,24 @@ class Transaction extends ZilliqaDataType {
 	 * @param $receipt
 	 * @param ZilliqaHash $senderPubKey
 	 * @param ZilliqaSignature $signature
-	 * @param ZilliqaBech32 $toAddr
+	 * @param ZilliqaHash $toAddr
 	 * @param ZilliqaNumber $version
+	 * @param ?ZilliqaString $code
+	 * @param ?ZilliqaString $data
 	 */
-	public function __construct(ZilliqaHash $ID, ZilliqaQuantity $amount, ZilliqaQuantity $gasLimit, ZilliqaQuantity $gasPrice, ZilliqaNumber $nonce, $receipt, ZilliqaHash $senderPubKey, ZilliqaSignature $signature, ZilliqaBech32 $toAddr, ZilliqaNumber $version) {
-		$this->ID = $ID;  
-		$this->amount = $amount;  
-		$this->gasLimit = $gasLimit;  
-		$this->gasPrice = $gasPrice;  
-		$this->nonce = $nonce;  
-		$this->receipt = $receipt;  
-		$this->senderPubKey = $senderPubKey;  
-		$this->signature = $signature;  
-		$this->toAddr = $toAddr;  
+	public function __construct(ZilliqaHash $ID, ZilliqaQuantity $amount, ZilliqaQuantity $gasLimit, ZilliqaQuantity $gasPrice, ZilliqaNumber $nonce, $receipt, ZilliqaHash $senderPubKey, ZilliqaSignature $signature, ZilliqaHash $toAddr, ZilliqaNumber $version, ?ZilliqaString $code = null, ?ZilliqaString $data = null) {
+		$this->ID = $ID;
+		$this->amount = $amount;
+		$this->gasLimit = $gasLimit;
+		$this->gasPrice = $gasPrice;
+		$this->nonce = $nonce;
+		$this->receipt = $receipt;
+		$this->senderPubKey = $senderPubKey;
+		$this->signature = $signature;
+		$this->toAddr = $toAddr;
 		$this->version = $version;
+		$this->code = $code;
+		$this->data = $data;
 	}
 
 	/**
@@ -105,8 +119,10 @@ class Transaction extends ZilliqaDataType {
 			'receipt' => 'Receipt',
 			'senderPubKey' => 'ZilliqaHash',
 			'signature' => 'ZilliqaSignature',
-			'toAddr' => 'ZilliqaBech32',
+			'toAddr' => 'ZilliqaHash',
 			'version' => 'ZilliqaNumber',
+			'code' => 'ZilliqaString',
+			'data' => 'ZilliqaString',
 		];
 	}
 
@@ -117,16 +133,18 @@ class Transaction extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'ID' => $this->ID->val(),
-			'amount' => $this->amount->val(),
-			'gasLimit' => $this->gasLimit->val(),
-			'gasPrice' => $this->gasPrice->val(),
-			'nonce' => $this->nonce->val(),
-			'receipt' => $this->receipt->toArray(),
-			'senderPubKey' => $this->senderPubKey->val(),
-			'signature' => $this->signature->val(),
-			'toAddr' => $this->toAddr->val(),
-			'version' => $this->version->val(),
+			'ID' => !is_null($this->ID) ?? $this->ID->val(),
+			'amount' => !is_null($this->amount) ?? $this->amount->val(),
+			'gasLimit' => !is_null($this->gasLimit) ?? $this->gasLimit->val(),
+			'gasPrice' => !is_null($this->gasPrice) ?? $this->gasPrice->val(),
+			'nonce' => !is_null($this->nonce) ?? $this->nonce->val(),
+			'receipt' => !is_null($this->receipt) ?? $this->receipt->toArray(),
+			'senderPubKey' => !is_null($this->senderPubKey) ?? $this->senderPubKey->val(),
+			'signature' => !is_null($this->signature) ?? $this->signature->val(),
+			'toAddr' => !is_null($this->toAddr) ?? $this->toAddr->val(),
+			'version' => !is_null($this->version) ?? $this->version->val(),
+			'code' => !is_null($this->code) ?? $this->code->val(),
+			'data' => !is_null($this->data) ?? $this->data->val(),
 		];
 	}
 }

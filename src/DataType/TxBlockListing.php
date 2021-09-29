@@ -32,7 +32,7 @@ class TxBlockListing extends ZilliqaDataType {
 	 * @param ZilliqaHash $Hash
 	 */
 	public function __construct(ZilliqaNumber $BlockNum, ZilliqaHash $Hash) {
-		$this->BlockNum = $BlockNum;  
+		$this->BlockNum = $BlockNum;
 		$this->Hash = $Hash;
 	}
 
@@ -53,8 +53,8 @@ class TxBlockListing extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'BlockNum' => $this->BlockNum->val(),
-			'Hash' => $this->Hash->val(),
+			'BlockNum' => !is_null($this->BlockNum) ?? $this->BlockNum->val(),
+			'Hash' => !is_null($this->Hash) ?? $this->Hash->val(),
 		];
 	}
 }

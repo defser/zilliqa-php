@@ -32,7 +32,7 @@ class TxBlockListings extends ZilliqaDataType {
 	 * @param ZilliqaNumber $maxPages
 	 */
 	public function __construct(array $data, ZilliqaNumber $maxPages) {
-		$this->data = $data;  
+		$this->data = $data;
 		$this->maxPages = $maxPages;
 	}
 
@@ -53,8 +53,8 @@ class TxBlockListings extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'data' => \Zilliqa\Zilliqa::valueArray($this->data, 'TxBlockListing'),
-			'maxPages' => $this->maxPages->val(),
+			'data' => !is_null($this->data) ?? \Zilliqa\Zilliqa::valueArray($this->data, 'TxBlockListing'),
+			'maxPages' => !is_null($this->maxPages) ?? $this->maxPages->val(),
 		];
 	}
 }

@@ -116,21 +116,21 @@ class TxBlockHeader extends ZilliqaDataType {
 	 * @param ZilliqaNumber $Version
 	 */
 	public function __construct(ZilliqaNumber $BlockNum, ZilliqaNumber $DSBlockNum, ZilliqaQuantity $GasLimit, ZilliqaQuantity $GasUsed, ZilliqaHash $MbInfoHash, ZilliqaHash $MinerPubKey, ZilliqaNumber $NumMicroBlocks, ZilliqaNumber $NumPages, ZilliqaNumber $NumTxns, ZilliqaHash $PrevBlockHash, ZilliqaQuantity $Rewards, ZilliqaHash $StateDeltaHash, ZilliqaHash $StateRootHash, ZilliqaTimestamp $Timestamp, ZilliqaQuantity $TxnFees, ZilliqaNumber $Version) {
-		$this->BlockNum = $BlockNum;  
-		$this->DSBlockNum = $DSBlockNum;  
-		$this->GasLimit = $GasLimit;  
-		$this->GasUsed = $GasUsed;  
-		$this->MbInfoHash = $MbInfoHash;  
-		$this->MinerPubKey = $MinerPubKey;  
-		$this->NumMicroBlocks = $NumMicroBlocks;  
-		$this->NumPages = $NumPages;  
-		$this->NumTxns = $NumTxns;  
-		$this->PrevBlockHash = $PrevBlockHash;  
-		$this->Rewards = $Rewards;  
-		$this->StateDeltaHash = $StateDeltaHash;  
-		$this->StateRootHash = $StateRootHash;  
-		$this->Timestamp = $Timestamp;  
-		$this->TxnFees = $TxnFees;  
+		$this->BlockNum = $BlockNum;
+		$this->DSBlockNum = $DSBlockNum;
+		$this->GasLimit = $GasLimit;
+		$this->GasUsed = $GasUsed;
+		$this->MbInfoHash = $MbInfoHash;
+		$this->MinerPubKey = $MinerPubKey;
+		$this->NumMicroBlocks = $NumMicroBlocks;
+		$this->NumPages = $NumPages;
+		$this->NumTxns = $NumTxns;
+		$this->PrevBlockHash = $PrevBlockHash;
+		$this->Rewards = $Rewards;
+		$this->StateDeltaHash = $StateDeltaHash;
+		$this->StateRootHash = $StateRootHash;
+		$this->Timestamp = $Timestamp;
+		$this->TxnFees = $TxnFees;
 		$this->Version = $Version;
 	}
 
@@ -165,22 +165,22 @@ class TxBlockHeader extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'BlockNum' => $this->BlockNum->val(),
-			'DSBlockNum' => $this->DSBlockNum->val(),
-			'GasLimit' => $this->GasLimit->val(),
-			'GasUsed' => $this->GasUsed->val(),
-			'MbInfoHash' => $this->MbInfoHash->val(),
-			'MinerPubKey' => $this->MinerPubKey->val(),
-			'NumMicroBlocks' => $this->NumMicroBlocks->val(),
-			'NumPages' => $this->NumPages->val(),
-			'NumTxns' => $this->NumTxns->val(),
-			'PrevBlockHash' => $this->PrevBlockHash->val(),
-			'Rewards' => $this->Rewards->val(),
-			'StateDeltaHash' => $this->StateDeltaHash->val(),
-			'StateRootHash' => $this->StateRootHash->val(),
-			'Timestamp' => $this->Timestamp->val(),
-			'TxnFees' => $this->TxnFees->val(),
-			'Version' => $this->Version->val(),
+			'BlockNum' => !is_null($this->BlockNum) ?? $this->BlockNum->val(),
+			'DSBlockNum' => !is_null($this->DSBlockNum) ?? $this->DSBlockNum->val(),
+			'GasLimit' => !is_null($this->GasLimit) ?? $this->GasLimit->val(),
+			'GasUsed' => !is_null($this->GasUsed) ?? $this->GasUsed->val(),
+			'MbInfoHash' => !is_null($this->MbInfoHash) ?? $this->MbInfoHash->val(),
+			'MinerPubKey' => !is_null($this->MinerPubKey) ?? $this->MinerPubKey->val(),
+			'NumMicroBlocks' => !is_null($this->NumMicroBlocks) ?? $this->NumMicroBlocks->val(),
+			'NumPages' => !is_null($this->NumPages) ?? $this->NumPages->val(),
+			'NumTxns' => !is_null($this->NumTxns) ?? $this->NumTxns->val(),
+			'PrevBlockHash' => !is_null($this->PrevBlockHash) ?? $this->PrevBlockHash->val(),
+			'Rewards' => !is_null($this->Rewards) ?? $this->Rewards->val(),
+			'StateDeltaHash' => !is_null($this->StateDeltaHash) ?? $this->StateDeltaHash->val(),
+			'StateRootHash' => !is_null($this->StateRootHash) ?? $this->StateRootHash->val(),
+			'Timestamp' => !is_null($this->Timestamp) ?? $this->Timestamp->val(),
+			'TxnFees' => !is_null($this->TxnFees) ?? $this->TxnFees->val(),
+			'Version' => !is_null($this->Version) ?? $this->Version->val(),
 		];
 	}
 }

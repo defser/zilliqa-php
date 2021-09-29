@@ -32,7 +32,7 @@ class TxBlock extends ZilliqaDataType {
 	 * @param $header
 	 */
 	public function __construct($body, $header) {
-		$this->body = $body;  
+		$this->body = $body;
 		$this->header = $header;
 	}
 
@@ -53,8 +53,8 @@ class TxBlock extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'body' => $this->body->toArray(),
-			'header' => $this->header->toArray(),
+			'body' => !is_null($this->body) ?? $this->body->toArray(),
+			'header' => !is_null($this->header) ?? $this->header->toArray(),
 		];
 	}
 }

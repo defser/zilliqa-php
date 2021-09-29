@@ -32,7 +32,7 @@ class Shard extends ZilliqaDataType {
 	 * @param ZilliqaNumber $size
 	 */
 	public function __construct(array $nodes, ZilliqaNumber $size) {
-		$this->nodes = $nodes;  
+		$this->nodes = $nodes;
 		$this->size = $size;
 	}
 
@@ -53,8 +53,8 @@ class Shard extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'nodes' => \Zilliqa\Zilliqa::valueArray($this->nodes, 'ZilliqaHash'),
-			'size' => $this->size->val(),
+			'nodes' => !is_null($this->nodes) ?? \Zilliqa\Zilliqa::valueArray($this->nodes, 'ZilliqaHash'),
+			'size' => !is_null($this->size) ?? $this->size->val(),
 		];
 	}
 }

@@ -45,7 +45,7 @@ class ShardingStructure extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'NumPeers' => \Zilliqa\Zilliqa::valueArray($this->NumPeers, 'ZilliqaNumber'),
+			'NumPeers' => !is_null($this->NumPeers) ?? \Zilliqa\Zilliqa::valueArray($this->NumPeers, 'ZilliqaNumber'),
 		];
 	}
 }

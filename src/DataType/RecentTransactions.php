@@ -32,7 +32,7 @@ class RecentTransactions extends ZilliqaDataType {
 	 * @param ZilliqaNumber $number
 	 */
 	public function __construct(array $TxnHashes, ZilliqaNumber $number) {
-		$this->TxnHashes = $TxnHashes;  
+		$this->TxnHashes = $TxnHashes;
 		$this->number = $number;
 	}
 
@@ -53,8 +53,8 @@ class RecentTransactions extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'TxnHashes' => \Zilliqa\Zilliqa::valueArray($this->TxnHashes, 'ZilliqaHash'),
-			'number' => $this->number->val(),
+			'TxnHashes' => !is_null($this->TxnHashes) ?? \Zilliqa\Zilliqa::valueArray($this->TxnHashes, 'ZilliqaHash'),
+			'number' => !is_null($this->number) ?? $this->number->val(),
 		];
 	}
 }
