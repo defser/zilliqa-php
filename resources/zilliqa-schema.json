@@ -31,6 +31,11 @@
     "GetTransaction": [["Hash"], "Transaction", 1, "api-transaction-get-tx"]
   },
   "objects": {
+    "TransactionCreated": {
+      "__required": ["Info", "TranID"],
+      "Info" : "String",
+      "TranID": "Hash"
+    },
     "Transaction": {
       "__required": ["ID", "amount", "gasLimit", "gasPrice", "nonce", "receipt", "senderPubKey", "signature", "toAddr", "version"],
       "ID" : "Hash",
