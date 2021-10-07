@@ -23,6 +23,7 @@
     "GetTxBlockRate": [[], "Quantity", 0, "api-blockchain-get-tx-block-rate"],
     "TxBlockListing": [["Number"], "TxBlockListings", 1, "api-blockchain-tx-block-listing"],
 
+    "CreateTransaction": [[{"version": "Number"}, {"nonce":  "Number"}, {"toAddr":  "Bech32"}, {"amount":  "Quantity"}, {"pubKey":  "Hash"}, {"gasPrice":  "Quantity"}, {"gasLimit":  "Quantity"}, {"code":  "String"}, {"data":  "String"}, {"signature":  "Signature"}, {"priority":  "Boolean"}], "TransactionCreated", 0, "api-transaction-get-minimum-gas-price"],
     "GetMinimumGasPrice": [[], "Quantity", 0, "api-transaction-get-minimum-gas-price"],
     "GetNumTxnsDSEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-dsepoch"],
     "GetNumTxnsTxEpoch": [[], "Quantity", 0, "api-transaction-get-num-txns-txepoch"],
