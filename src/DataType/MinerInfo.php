@@ -53,8 +53,8 @@ class MinerInfo extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'dscommittee' => !is_null($this->dscommittee) ?? \Zilliqa\Zilliqa::valueArray($this->dscommittee, 'ZilliqaHash'),
-			'shards' => !is_null($this->shards) ?? \Zilliqa\Zilliqa::valueArray($this->shards, 'Shard'),
+			'dscommittee' => !is_null($this->dscommittee) ? \Zilliqa\Zilliqa::valueArray($this->dscommittee, 'ZilliqaHash') : null,
+			'shards' => !is_null($this->shards) ? \Zilliqa\Zilliqa::valueArray($this->shards, 'Shard') : null,
 		];
 	}
 }

@@ -69,10 +69,10 @@ class Message extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'_amount' => !is_null($this->_amount) ?? $this->_amount->val(),
-			'_recipient' => !is_null($this->_recipient) ?? $this->_recipient->val(),
-			'_tag' => !is_null($this->_tag) ?? $this->_tag->val(),
-			'params' => !is_null($this->params) ?? \Zilliqa\Zilliqa::valueArray($this->params, 'ZilliqaString'),
+			'_amount' => !is_null($this->_amount) ? $this->_amount->val() : null,
+			'_recipient' => !is_null($this->_recipient) ? $this->_recipient->val() : null,
+			'_tag' => !is_null($this->_tag) ? $this->_tag->val() : null,
+			'params' => !is_null($this->params) ? \Zilliqa\Zilliqa::valueArray($this->params, 'ZilliqaString') : null,
 		];
 	}
 }

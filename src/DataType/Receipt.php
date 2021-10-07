@@ -85,12 +85,12 @@ class Receipt extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'cumulative_gas' => !is_null($this->cumulative_gas) ?? $this->cumulative_gas->val(),
-			'epoch_num' => !is_null($this->epoch_num) ?? $this->epoch_num->val(),
-			'success' => !is_null($this->success) ?? $this->success->val(),
-			'accepted' => !is_null($this->accepted) ?? $this->accepted->val(),
-			'transitions' => !is_null($this->transitions) ?? \Zilliqa\Zilliqa::valueArray($this->transitions, 'Transition'),
-			'exceptions' => !is_null($this->exceptions) ?? \Zilliqa\Zilliqa::valueArray($this->exceptions, 'Exception'),
+			'cumulative_gas' => !is_null($this->cumulative_gas) ? $this->cumulative_gas->val() : null,
+			'epoch_num' => !is_null($this->epoch_num) ? $this->epoch_num->val() : null,
+			'success' => !is_null($this->success) ? $this->success->val() : null,
+			'accepted' => !is_null($this->accepted) ? $this->accepted->val() : null,
+			'transitions' => !is_null($this->transitions) ? \Zilliqa\Zilliqa::valueArray($this->transitions, 'Transition') : null,
+			'exceptions' => !is_null($this->exceptions) ? \Zilliqa\Zilliqa::valueArray($this->exceptions, 'Exception') : null,
 		];
 	}
 }

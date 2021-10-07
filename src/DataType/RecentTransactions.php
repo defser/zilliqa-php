@@ -53,8 +53,8 @@ class RecentTransactions extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'TxnHashes' => !is_null($this->TxnHashes) ?? \Zilliqa\Zilliqa::valueArray($this->TxnHashes, 'ZilliqaHash'),
-			'number' => !is_null($this->number) ?? $this->number->val(),
+			'TxnHashes' => !is_null($this->TxnHashes) ? \Zilliqa\Zilliqa::valueArray($this->TxnHashes, 'ZilliqaHash') : null,
+			'number' => !is_null($this->number) ? $this->number->val() : null,
 		];
 	}
 }

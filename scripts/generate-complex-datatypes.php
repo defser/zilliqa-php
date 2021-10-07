@@ -208,11 +208,11 @@ function makeToArrayBody(array $input): string
     $return = 'return [' . "\n";
     foreach ($input['params'] as $name => $type) {
         if (is_array($type)) {
-            $return .= sprintf("\t" . '\'%s\' => !is_null($this->%s) ?? \Zilliqa\Zilliqa::valueArray($this->%s, \'%s\'),', $name, $name, $name, ZilliqaDataType::getTypeClass($type[0])) . "\n";
+            $return .= sprintf("\t" . '\'%s\' => !is_null($this->%s) ? \Zilliqa\Zilliqa::valueArray($this->%s, \'%s\') : null,', $name, $name, $name, ZilliqaDataType::getTypeClass($type[0])) . "\n";
         } elseif (!ZilliqaData::typeMap($type)) {
-            $return .= sprintf("\t" . '\'%s\' => !is_null($this->%s) ?? $this->%s->toArray(),', $name, $name, $name) . "\n";
+            $return .= sprintf("\t" . '\'%s\' => !is_null($this->%s) ? $this->%s->toArray() : null,', $name, $name, $name) . "\n";
         } else {
-            $return .= sprintf("\t" . '\'%s\' => !is_null($this->%s) ?? $this->%s->val(),', $name, $name, $name) . "\n";
+            $return .= sprintf("\t" . '\'%s\' => !is_null($this->%s) ? $this->%s->val() : null,', $name, $name, $name) . "\n";
         }
     }
 

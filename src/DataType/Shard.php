@@ -53,8 +53,8 @@ class Shard extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'nodes' => !is_null($this->nodes) ?? \Zilliqa\Zilliqa::valueArray($this->nodes, 'ZilliqaHash'),
-			'size' => !is_null($this->size) ?? $this->size->val(),
+			'nodes' => !is_null($this->nodes) ? \Zilliqa\Zilliqa::valueArray($this->nodes, 'ZilliqaHash') : null,
+			'size' => !is_null($this->size) ? $this->size->val() : null,
 		];
 	}
 }

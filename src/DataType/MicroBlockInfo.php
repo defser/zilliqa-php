@@ -61,9 +61,9 @@ class MicroBlockInfo extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'MicroBlockHash' => !is_null($this->MicroBlockHash) ?? $this->MicroBlockHash->val(),
-			'MicroBlockShardId' => !is_null($this->MicroBlockShardId) ?? $this->MicroBlockShardId->val(),
-			'MicroBlockTxnRootHash' => !is_null($this->MicroBlockTxnRootHash) ?? $this->MicroBlockTxnRootHash->val(),
+			'MicroBlockHash' => !is_null($this->MicroBlockHash) ? $this->MicroBlockHash->val() : null,
+			'MicroBlockShardId' => !is_null($this->MicroBlockShardId) ? $this->MicroBlockShardId->val() : null,
+			'MicroBlockTxnRootHash' => !is_null($this->MicroBlockTxnRootHash) ? $this->MicroBlockTxnRootHash->val() : null,
 		];
 	}
 }
