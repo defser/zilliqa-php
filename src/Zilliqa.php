@@ -66,10 +66,16 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
 
                 $validArguments = $paramDefinition[0];
                 $argumentClassNames = [];
+                $argumentClassKeys = [];
                 if (count($validArguments)) {
                     $this->debug('Valid arguments', $validArguments);
                     foreach ($validArguments as $type) {
-                        $argumentClassNames[] = ZilliqaData::typeMap($type);
+                        if (is_string($type)) {
+                            $argumentClassNames[] = ZilliqaData::typeMap($type);
+                        } else {
+                            $argumentClassNames[] = ZilliqaData::typeMap(array_values($type)[0]);
+                            $argumentClassKeys[] = array_keys($type)[0];
+                        }
                     }
                     $this->debug('Valid arguments class names', $argumentClassNames);
                 }
@@ -81,11 +87,15 @@ class Zilliqa extends ZilliqaStatic implements Web3Interface
                         if (is_subclass_of($arg, ZilliqaDataType::class)) {
                             $argType = basename(str_replace('\\', '/', get_class($arg)));
                             if ($argumentClassNames[$i] !== $argType) {
-                                throw new InvalidArgumentException("Argument $i is "
-                                    . $argType
-                                    . " but expected $argumentClassNames[$i] in $method().");
+                                throw new InvalidArgumentException(
+                                    sprintf("Argument %s is %s but expected %s in %s().", $i, $argType, $argumentClassNames[$i], $method)
+                                );
                             } else {
-                                $requestParams[] = $arg->val();
+                                if ($argumentClassKeys) {
+                                    $requestParams[0][$argumentClassKeys[$i] ?? null] = $arg->val();
+                                } else {
+                                    $requestParams[] = $arg->val();
+                                }
                             }
                         } else {
                             throw new InvalidArgumentException('Arg ' . $i . ' is not a ZilliqaDataType.');
