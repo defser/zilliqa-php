@@ -284,7 +284,7 @@ trait Web3Methods {
 	 *
 	 * @param ZilliqaNumber $version
 	 * @param ZilliqaNumber $nonce
-	 * @param ZilliqaBech32 $toAddr
+	 * @param ZilliqaString $toAddr
 	 * @param ZilliqaQuantity $amount
 	 * @param ZilliqaHash $pubKey
 	 * @param ZilliqaQuantity $gasPrice
@@ -295,7 +295,7 @@ trait Web3Methods {
 	 * @param ZilliqaBoolean $priority
 	 * @return ?TransactionCreated
 	 */
-	public function CreateTransaction(ZilliqaNumber $version, ZilliqaNumber $nonce, ZilliqaBech32 $toAddr, ZilliqaQuantity $amount, ZilliqaHash $pubKey, ZilliqaQuantity $gasPrice, ZilliqaQuantity $gasLimit, ZilliqaString $code, ZilliqaString $data, ZilliqaSignature $signature, ZilliqaBoolean $priority): ?TransactionCreated {
+	public function CreateTransaction(ZilliqaNumber $version, ZilliqaNumber $nonce, ZilliqaString $toAddr, ZilliqaQuantity $amount, ZilliqaHash $pubKey, ZilliqaQuantity $gasPrice, ZilliqaQuantity $gasLimit, ZilliqaString $code, ZilliqaString $data, ZilliqaSignature $signature, ZilliqaBoolean $priority): ?TransactionCreated {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
