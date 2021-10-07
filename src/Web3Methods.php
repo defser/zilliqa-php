@@ -21,8 +21,11 @@ use Zilliqa\DataType\DsBlock;
 use Zilliqa\DataType\TxBlock;
 use Zilliqa\DataType\MinerInfo;
 use Zilliqa\DataType\TxBlockListings;
-use Zilliqa\DataType\RecentTransactions;
 use Zilliqa\DataType\ZilliqaHash;
+use Zilliqa\DataType\ZilliqaSignature;
+use Zilliqa\DataType\ZilliqaBoolean;
+use Zilliqa\DataType\TransactionCreated;
+use Zilliqa\DataType\RecentTransactions;
 use Zilliqa\DataType\Transaction;
 
 /**
@@ -271,6 +274,28 @@ trait Web3Methods {
 	 * @return ?TxBlockListings
 	 */
 	public function TxBlockListing(ZilliqaNumber $arg1): ?TxBlockListings {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * Generated method CreateTransaction().
+	 * 
+	 * See [Zilliqa Developer Docs CreateTransaction](https://dev.zilliqa.com/docs/apis/api-transaction-get-minimum-gas-price)
+	 *
+	 * @param ZilliqaNumber $version
+	 * @param ZilliqaNumber $nonce
+	 * @param ZilliqaBech32 $toAddr
+	 * @param ZilliqaQuantity $amount
+	 * @param ZilliqaHash $pubKey
+	 * @param ZilliqaQuantity $gasPrice
+	 * @param ZilliqaQuantity $gasLimit
+	 * @param ZilliqaString $code
+	 * @param ZilliqaString $data
+	 * @param ZilliqaSignature $signature
+	 * @param ZilliqaBoolean $priority
+	 * @return ?TransactionCreated
+	 */
+	public function CreateTransaction(ZilliqaNumber $version, ZilliqaNumber $nonce, ZilliqaBech32 $toAddr, ZilliqaQuantity $amount, ZilliqaHash $pubKey, ZilliqaQuantity $gasPrice, ZilliqaQuantity $gasLimit, ZilliqaString $code, ZilliqaString $data, ZilliqaSignature $signature, ZilliqaBoolean $priority): ?TransactionCreated {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
