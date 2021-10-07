@@ -165,22 +165,22 @@ class TxBlockHeader extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'BlockNum' => !is_null($this->BlockNum) ?? $this->BlockNum->val(),
-			'DSBlockNum' => !is_null($this->DSBlockNum) ?? $this->DSBlockNum->val(),
-			'GasLimit' => !is_null($this->GasLimit) ?? $this->GasLimit->val(),
-			'GasUsed' => !is_null($this->GasUsed) ?? $this->GasUsed->val(),
-			'MbInfoHash' => !is_null($this->MbInfoHash) ?? $this->MbInfoHash->val(),
-			'MinerPubKey' => !is_null($this->MinerPubKey) ?? $this->MinerPubKey->val(),
-			'NumMicroBlocks' => !is_null($this->NumMicroBlocks) ?? $this->NumMicroBlocks->val(),
-			'NumPages' => !is_null($this->NumPages) ?? $this->NumPages->val(),
-			'NumTxns' => !is_null($this->NumTxns) ?? $this->NumTxns->val(),
-			'PrevBlockHash' => !is_null($this->PrevBlockHash) ?? $this->PrevBlockHash->val(),
-			'Rewards' => !is_null($this->Rewards) ?? $this->Rewards->val(),
-			'StateDeltaHash' => !is_null($this->StateDeltaHash) ?? $this->StateDeltaHash->val(),
-			'StateRootHash' => !is_null($this->StateRootHash) ?? $this->StateRootHash->val(),
-			'Timestamp' => !is_null($this->Timestamp) ?? $this->Timestamp->val(),
-			'TxnFees' => !is_null($this->TxnFees) ?? $this->TxnFees->val(),
-			'Version' => !is_null($this->Version) ?? $this->Version->val(),
+			'BlockNum' => !is_null($this->BlockNum) ? $this->BlockNum->val() : null,
+			'DSBlockNum' => !is_null($this->DSBlockNum) ? $this->DSBlockNum->val() : null,
+			'GasLimit' => !is_null($this->GasLimit) ? $this->GasLimit->val() : null,
+			'GasUsed' => !is_null($this->GasUsed) ? $this->GasUsed->val() : null,
+			'MbInfoHash' => !is_null($this->MbInfoHash) ? $this->MbInfoHash->val() : null,
+			'MinerPubKey' => !is_null($this->MinerPubKey) ? $this->MinerPubKey->val() : null,
+			'NumMicroBlocks' => !is_null($this->NumMicroBlocks) ? $this->NumMicroBlocks->val() : null,
+			'NumPages' => !is_null($this->NumPages) ? $this->NumPages->val() : null,
+			'NumTxns' => !is_null($this->NumTxns) ? $this->NumTxns->val() : null,
+			'PrevBlockHash' => !is_null($this->PrevBlockHash) ? $this->PrevBlockHash->val() : null,
+			'Rewards' => !is_null($this->Rewards) ? $this->Rewards->val() : null,
+			'StateDeltaHash' => !is_null($this->StateDeltaHash) ? $this->StateDeltaHash->val() : null,
+			'StateRootHash' => !is_null($this->StateRootHash) ? $this->StateRootHash->val() : null,
+			'Timestamp' => !is_null($this->Timestamp) ? $this->Timestamp->val() : null,
+			'TxnFees' => !is_null($this->TxnFees) ? $this->TxnFees->val() : null,
+			'Version' => !is_null($this->Version) ? $this->Version->val() : null,
 		];
 	}
 }

@@ -53,8 +53,8 @@ class TxBlock extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'body' => !is_null($this->body) ?? $this->body->toArray(),
-			'header' => !is_null($this->header) ?? $this->header->toArray(),
+			'body' => !is_null($this->body) ? $this->body->toArray() : null,
+			'header' => !is_null($this->header) ? $this->header->toArray() : null,
 		];
 	}
 }

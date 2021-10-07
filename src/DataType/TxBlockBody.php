@@ -61,9 +61,9 @@ class TxBlockBody extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'BlockHash' => !is_null($this->BlockHash) ?? $this->BlockHash->val(),
-			'HeaderSign' => !is_null($this->HeaderSign) ?? $this->HeaderSign->val(),
-			'MicroBlockInfos' => !is_null($this->MicroBlockInfos) ?? \Zilliqa\Zilliqa::valueArray($this->MicroBlockInfos, 'MicroBlockInfo'),
+			'BlockHash' => !is_null($this->BlockHash) ? $this->BlockHash->val() : null,
+			'HeaderSign' => !is_null($this->HeaderSign) ? $this->HeaderSign->val() : null,
+			'MicroBlockInfos' => !is_null($this->MicroBlockInfos) ? \Zilliqa\Zilliqa::valueArray($this->MicroBlockInfos, 'MicroBlockInfo') : null,
 		];
 	}
 }
