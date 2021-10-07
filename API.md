@@ -21,6 +21,7 @@ are generated  zilliqa-schema->objects.
 Currently these are:
 
 ```
+TransactionCreated
 Transaction
 Receipt
 Exception
