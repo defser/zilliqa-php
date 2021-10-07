@@ -53,8 +53,8 @@ class TxBlockListing extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'BlockNum' => !is_null($this->BlockNum) ?? $this->BlockNum->val(),
-			'Hash' => !is_null($this->Hash) ?? $this->Hash->val(),
+			'BlockNum' => !is_null($this->BlockNum) ? $this->BlockNum->val() : null,
+			'Hash' => !is_null($this->Hash) ? $this->Hash->val() : null,
 		];
 	}
 }
