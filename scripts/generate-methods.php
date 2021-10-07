@@ -87,9 +87,16 @@ EOF;
         $methodParams = [];
         if (count($valid_params)) {
             foreach ($valid_params as $i => $type) {
-                $primitiveType = ZilliqaData::typeMap($type);
-                $paramType = $primitiveType ?: $type;
-                $methodParams[] = PhpParameter::create("arg" . ($i + 1))->setType($paramType);
+                if (is_string($type)) {
+                    $primitiveType = ZilliqaData::typeMap($type);
+                    $paramType = $primitiveType ?: $type;
+                    $methodParams[] = PhpParameter::create("arg" . ($i + 1))->setType($paramType);
+                } else {
+                    $primitiveType = ZilliqaData::typeMap(array_values($type)[0]);
+                    $paramType = $primitiveType ?: array_values($type)[0];
+                    $methodParams[] = PhpParameter::create(array_keys($type)[0])->setType($paramType);
+                }
+
                 addUseStatement("Zilliqa\\DataType\\$paramType", $useStatements);
             }
         }
