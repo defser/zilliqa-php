@@ -53,8 +53,8 @@ class Balance extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'balance' => !is_null($this->balance) ?? $this->balance->val(),
-			'nonce' => !is_null($this->nonce) ?? $this->nonce->val(),
+			'balance' => !is_null($this->balance) ? $this->balance->val() : null,
+			'nonce' => !is_null($this->nonce) ? $this->nonce->val() : null,
 		];
 	}
 }

@@ -53,8 +53,8 @@ class DsBlock extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'header' => !is_null($this->header) ?? $this->header->toArray(),
-			'signature' => !is_null($this->signature) ?? $this->signature->val(),
+			'header' => !is_null($this->header) ? $this->header->toArray() : null,
+			'signature' => !is_null($this->signature) ? $this->signature->val() : null,
 		];
 	}
 }

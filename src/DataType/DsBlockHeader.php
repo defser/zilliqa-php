@@ -101,14 +101,14 @@ class DsBlockHeader extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'BlockNum' => !is_null($this->BlockNum) ?? $this->BlockNum->val(),
-			'Difficulty' => !is_null($this->Difficulty) ?? $this->Difficulty->val(),
-			'DifficultyDS' => !is_null($this->DifficultyDS) ?? $this->DifficultyDS->val(),
-			'GasPrice' => !is_null($this->GasPrice) ?? $this->GasPrice->val(),
-			'LeaderPubKey' => !is_null($this->LeaderPubKey) ?? $this->LeaderPubKey->val(),
-			'PoWWinners' => !is_null($this->PoWWinners) ?? \Zilliqa\Zilliqa::valueArray($this->PoWWinners, 'ZilliqaHash'),
-			'PrevHash' => !is_null($this->PrevHash) ?? $this->PrevHash->val(),
-			'Timestamp' => !is_null($this->Timestamp) ?? $this->Timestamp->val(),
+			'BlockNum' => !is_null($this->BlockNum) ? $this->BlockNum->val() : null,
+			'Difficulty' => !is_null($this->Difficulty) ? $this->Difficulty->val() : null,
+			'DifficultyDS' => !is_null($this->DifficultyDS) ? $this->DifficultyDS->val() : null,
+			'GasPrice' => !is_null($this->GasPrice) ? $this->GasPrice->val() : null,
+			'LeaderPubKey' => !is_null($this->LeaderPubKey) ? $this->LeaderPubKey->val() : null,
+			'PoWWinners' => !is_null($this->PoWWinners) ? \Zilliqa\Zilliqa::valueArray($this->PoWWinners, 'ZilliqaHash') : null,
+			'PrevHash' => !is_null($this->PrevHash) ? $this->PrevHash->val() : null,
+			'Timestamp' => !is_null($this->Timestamp) ? $this->Timestamp->val() : null,
 		];
 	}
 }

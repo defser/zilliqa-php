@@ -53,8 +53,8 @@ class DSBlockListings extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'data' => !is_null($this->data) ?? \Zilliqa\Zilliqa::valueArray($this->data, 'DSBlockListing'),
-			'maxPages' => !is_null($this->maxPages) ?? $this->maxPages->val(),
+			'data' => !is_null($this->data) ? \Zilliqa\Zilliqa::valueArray($this->data, 'DSBlockListing') : null,
+			'maxPages' => !is_null($this->maxPages) ? $this->maxPages->val() : null,
 		];
 	}
 }

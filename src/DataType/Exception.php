@@ -53,8 +53,8 @@ class Exception extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'line' => !is_null($this->line) ?? $this->line->val(),
-			'message' => !is_null($this->message) ?? $this->message->val(),
+			'line' => !is_null($this->line) ? $this->line->val() : null,
+			'message' => !is_null($this->message) ? $this->message->val() : null,
 		];
 	}
 }
