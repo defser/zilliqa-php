@@ -61,9 +61,9 @@ class Transition extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'addr' => !is_null($this->addr) ?? $this->addr->val(),
-			'depth' => !is_null($this->depth) ?? $this->depth->val(),
-			'msg' => !is_null($this->msg) ?? $this->msg->toArray(),
+			'addr' => !is_null($this->addr) ? $this->addr->val() : null,
+			'depth' => !is_null($this->depth) ? $this->depth->val() : null,
+			'msg' => !is_null($this->msg) ? $this->msg->toArray() : null,
 		];
 	}
 }

@@ -133,18 +133,18 @@ class Transaction extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'ID' => !is_null($this->ID) ?? $this->ID->val(),
-			'amount' => !is_null($this->amount) ?? $this->amount->val(),
-			'gasLimit' => !is_null($this->gasLimit) ?? $this->gasLimit->val(),
-			'gasPrice' => !is_null($this->gasPrice) ?? $this->gasPrice->val(),
-			'nonce' => !is_null($this->nonce) ?? $this->nonce->val(),
-			'receipt' => !is_null($this->receipt) ?? $this->receipt->toArray(),
-			'senderPubKey' => !is_null($this->senderPubKey) ?? $this->senderPubKey->val(),
-			'signature' => !is_null($this->signature) ?? $this->signature->val(),
-			'toAddr' => !is_null($this->toAddr) ?? $this->toAddr->val(),
-			'version' => !is_null($this->version) ?? $this->version->val(),
-			'code' => !is_null($this->code) ?? $this->code->val(),
-			'data' => !is_null($this->data) ?? $this->data->val(),
+			'ID' => !is_null($this->ID) ? $this->ID->val() : null,
+			'amount' => !is_null($this->amount) ? $this->amount->val() : null,
+			'gasLimit' => !is_null($this->gasLimit) ? $this->gasLimit->val() : null,
+			'gasPrice' => !is_null($this->gasPrice) ? $this->gasPrice->val() : null,
+			'nonce' => !is_null($this->nonce) ? $this->nonce->val() : null,
+			'receipt' => !is_null($this->receipt) ? $this->receipt->toArray() : null,
+			'senderPubKey' => !is_null($this->senderPubKey) ? $this->senderPubKey->val() : null,
+			'signature' => !is_null($this->signature) ? $this->signature->val() : null,
+			'toAddr' => !is_null($this->toAddr) ? $this->toAddr->val() : null,
+			'version' => !is_null($this->version) ? $this->version->val() : null,
+			'code' => !is_null($this->code) ? $this->code->val() : null,
+			'data' => !is_null($this->data) ? $this->data->val() : null,
 		];
 	}
 }

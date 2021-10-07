@@ -53,8 +53,8 @@ class TransactionCreated extends ZilliqaDataType {
 	 */
 	public function toArray(): array {
 		return [
-			'Info' => !is_null($this->Info) ?? $this->Info->val(),
-			'TranID' => !is_null($this->TranID) ?? $this->TranID->val(),
+			'Info' => !is_null($this->Info) ? $this->Info->val() : null,
+			'TranID' => !is_null($this->TranID) ? $this->TranID->val() : null,
 		];
 	}
 }
