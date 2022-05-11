@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ba0a7d18eda16afb0248578e8649a9d",
+    "content-hash": "7fd7be9c8719ba213cbd3286157ec05d",
     "packages": [
         {
             "name": "graze/guzzle-jsonrpc",
@@ -3985,7 +3985,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1",
+        "php": ">=8.0",
         "ext-json": "*"
     },
     "platform-dev": [],
